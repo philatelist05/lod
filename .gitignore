@@ -1,0 +1,10 @@
+#Latex files
+*.aux
+*.bbl
+*.pdf
+*.dvi
+*.toc
+*.out
+*.log
+*.blg
+*.lb
