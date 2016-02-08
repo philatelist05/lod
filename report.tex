@@ -11,14 +11,15 @@
 \usepackage[english]{babel}
 \usepackage[numbers]{natbib}
 \usepackage{amsmath}
+\usepackage{csquotes}
 
 
 \setlength{\textfloatsep}{5pt plus 1.0pt minus 2.0pt}
 \setlength{\floatsep}{7pt plus 1.0pt minus 2.0pt}
 \setlength{\intextsep }{7pt plus 1.0pt minus 2.0pt}
 
-\setcounter{secnumdepth}{4}
-\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
 
 
 \begin{document}
@@ -28,7 +29,7 @@
 \pagenumbering{roman}
 \setlength{\tabcolsep}{10pt}
 
-\title{Linked Open Data at University of Technology Vienna}
+\title{Linked~Open~Data at University of Technology Vienna}
 
 \author{Stefan Gamerith\\
 \texttt{e0925081@student.tuwien.ac.at} \\ Student ID.: 0925081}
@@ -45,7 +46,7 @@
 \pagenumbering{arabic}
 
 \section{Introduction}
-While the pressure on governments and public organizations to release \textit{open data} has significantly grown with the spread of information systems, there has been also a need for \textit{linking} these data from various sources to understand the information as a whole.
+While the pressure on governments and public organizations to release \textit{Open~Data} has significantly grown with the spread of information systems, there has been also a need for \textit{linking} these data from various sources to understand the information as a whole.
 
 Open Data includes non-privacy-restricted and non-confidential data. Therefore any restrictions in distribution are prohibited and data is funded only by public money.~\citet{article:janssen2012benefits} The application domain for Open Data providers is not restricted by its nature in any way and ranges from traffic, weather, statictics to budgeting in the public sector. Just the publication of Open Data seems not enough but in addition the implementation of a feedback loop result in \textit{Open Government}. This has the advantage of a constant adaption to the citizen's needs instead of just visualizing former closed data. 
 
@@ -54,8 +55,35 @@ Following these principles of publishing and connecting data on the Web is known
 
 \citet{artivle:bernerslee-t-2006-1} developed a five star rating scheme for classifying \textit{Linked Open Data}, which combines Linked Data and Open Data. The scheme ranges from one star describing Open Data only to five stars describing Open Data in a machine-readable format using open standards with links to other data sets.
 
-Although Linked Open Data offer universities new opportunities for providing unprecedented insight into its core activities and ease application development, Linked Open Data has not been widely adopted by universities. 
+Although Linked~Open~Data offer universities new opportunities for providing unprecedented insight into its core activities and ease application development, a major \textbf{problem} is that \textbf{Linked~Open~Data has not been widely adopted by universities yet}. Even tough there are a few examples~\cite{url:linked-universities-members} of publishing university related data as Linked~Open~Data, there has been little knowledge of using Linked~Open~Data for publishing university related information. 
 
+The remainder of this section states the addressed research question of this paper, describes the contributions in the course of investigating the research questions and gives an overview of the structure of this paper.
+
+\subsection{Research Questions}
+The fundamental research questions underlying this paper is:
+\begin{displayquote}
+\textit{How can Linked~Open~Data help to improve processes in university context and how can it be successfully applied?}
+\end{displayquote}
+More concrete this paper concentrates on the following more concrete research questions:
+\paragraph{Q1: What are best practices regarding the applicability of Linked Open Data in university settings?}
+As of now, there are no established best practices for the use of Linked Open Data due to its little adoption in university contexts. For this very reason it is crucial to identify strengths and limitation from previous experiences~\cite{url:linked-universities-members} of using Linked~Open~Data as core technology. 
+\paragraph{Q2: What are major benefits and barriers for each stakeholder and what are useful use cases?}
+We identified three different stakeholders in university context \textit{Students}, \textit{Researchers} and \textit{Administration staff}. Since the success of any new technology highly depends on the acceptance of the stakeholders, the needs of each of the target groups needs to be examined. Furthermore, use cases are important to showcase profits and shortcomings to a non-technical audience. 
+\paragraph{Q3: What are major challenges for the implementation of a Linked Open Data~solution?}
+As the implementation of a Linked Open Data solution is a time consuming task, the knowledge of probable challenges from the technical perspective as well as from the management perspective is a key factor for the successful adoption. 
+\paragraph{Q4: How would a prototypical implementation of Linked~Open~Data look like?}
+Among the various existing data sets available it needs to be investigated if a (semi-) automatic transformation is feasible or is the manual data provision enough. In addition, from an implementers perspective of view, critical factors regarding the storage and retrieval of Linked~Open~Data need to be identified. 
+
+\subsection{Methodology}
+Finding an answer for the research questions above has lead to the following three methodologies:
+\paragraph{Coordinated set of semi-structured interviews}
+\paragraph{Litrature Review}
+\paragraph{Conceptual System Design}
+
+%This paper has lead to a few contributions which are listed below. 
+\subsection{Contributions}
+
+\subsection{Structure of this Paper}
 
 \newpage
 \bibliographystyle{plainnat}
