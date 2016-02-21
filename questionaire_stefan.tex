@@ -1,0 +1,110 @@
+\documentclass[12pt,fleqn]{scrreprt}
+
+\usepackage[top=2.5cm,bottom=2.5cm,left=2.5cm,right=2.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{paperandpencil}
+\usepackage{setspace}
+
+\begin{document}
+
+\fbox{\fbox{\parbox{.45\linewidth}
+{\centering
+\textsc{Questionaire}\\
+\textsc{\textbf{L}inked \textbf{O}pen \textbf{D}ata}
+}}}
+\hfill
+\parbox{.45\linewidth}{
+\begin{doublespace}
+\normalsize Name:\hrulefill\\
+Department:\hrulefill\\
+Date: \hrulefill
+\end{doublespace}
+}
+
+
+\section*{General Questions}
+\vspace{0.5cm}
+
+\question{\bfseries Which organizational area would you associate your work with?}
+%\horizontalthree{\upthree{Research}{Student Affairs}{Administration}}
+\begin{answersA}
+\item \ebigbox{Research}
+\item \ebigbox{Student Affairs}
+\item \ebigbox{Administration}
+\item Other\linetext{}
+\end{answersA}
+
+\question{\bfseries How would you describe your area of responsibility? How would you characterize your \textit{daily} work tasks?}
+\openthree
+
+\question{\bfseries How would you say classify your level of experience with Information Systems?}
+\horizontalfive{\upfive{Novice\footnotemark[1]}{Advanced Beginner\footnotemark[2]}{Competent\footnotemark[3]}{Proficient\footnotemark[4]}{Expert\footnotemark[5]}}{\downfive{}{}{}{}{}}
+
+\question{\bfseries How would you classify your level of expertise with Linked Open Data?}
+\horizontalfive{\upfive{never heard}{heard but never used}{used in small example}{used in practice}{Expert in LOD}}
+{\downfive{}{}{}{}{}}
+\footnotetext[1]{No experience with the situations in which they are expected to perform tasks.}
+\footnotetext[2]{Has coped with enough real situations to note the recurrent meaningful situational components. }
+\footnotetext[3]{Has already gained a considerable amount of routine to do tasks by deliberate planning to reach long-term goals. (e.g. do things in a organized way) }
+\footnotetext[4]{Perceives situations as wholes, rather than in terms of aspects, and performance is guided by maxims.}
+\footnotetext[5]{Has a vision of what is possible and uses analytical approaches in new situations or in case of problems.}
+%% Taken from the "Dreyfus model of skill acquisition" %%
+\newpage
+
+\section*{LOD in Administration}
+\vspace{0.5cm}
+
+\question{\bfseries How useful do you find the improvements with Linked Data in building maps?}
+\horizontalfive{\upfive{not useful}{}{useful}{}{extremely useful}}
+{\downfive{1}{2}{3}{4}{5}}
+Why?
+\opentwo
+
+\question{\bfseries How useful do you find publishing Linked Data for statistical evaluation?}
+\horizontalfive{\upfive{not useful}{}{useful}{}{extremely useful}}
+{\downfive{1}{2}{3}{4}{5}}
+Why?
+\opentwo
+
+\newpage
+
+\question{\textbf{Can you imagine similar projects at the Vienna University of Technology?}}
+Yes, in particular:
+\opentwo
+No, because:
+\opentwo
+What benefits do you see?\\
+\opentwo
+What disadvantages or barriers do you see?\\
+\opentwo
+Can you imagine/recommend other roles/persons?\\
+\opentwo
+
+\newpage
+
+\section*{LOD Applications}
+\question{\textbf{Do you know any useful application of LOD which will help you in your daily work or will make internal procedures at the university more efficient?}}
+\openfour
+What benefits do you see?\\
+\opentwo
+What disadvantages or barriers do you see?\\
+\opentwo
+Can you imagine/recommend other roles/persons?\\
+\opentwo
+\newpage
+
+\section*{LOD Data}
+\question{\textbf{Do you know any other data regarding administration or in general which can be published as LOD?}}
+\openfour
+What benefits do you see?\\
+\opentwo
+What disadvantages or barriers do you see?\\
+\opentwo
+Can you imagine/recommend other roles/persons?\\
+\opentwo
+\newpage
+
+\section*{LOD in general}
+\question{\textbf{Do you have any other kinds of suggestions regarding to LOD in general or with focus on administration?}}
+\openfour
+\end{document}
