@@ -13,6 +13,7 @@
 \usepackage{amsmath}
 \usepackage{csquotes}
 \usepackage[final]{pdfpages}
+\usepackage[inline]{enumitem}
 
 \setlength{\textfloatsep}{5pt plus 1.0pt minus 2.0pt}
 \setlength{\floatsep}{7pt plus 1.0pt minus 2.0pt}
@@ -188,6 +189,14 @@ In the remainder of this section we gave use cases for Linked Data applications 
 \section{Proposed technical Architecture}
 After presenting the results of the conducted interviews in the previous section we give a short overview of a prototypical architecture for the provision, processing, transformation and exposition of Linked Open Data. First, a high level view of the overall architecture is given. Then stakeholder specific concerns are discussed, highlighting relevant data sets and application types. In the remainder of this section, challenges for the design of a Linked Open Data solution are identified. 
 \subsection{The big picture}
+In this sub-section we provide an overview of a general-purpose architecture for implementing applications using Linked Open Data~(LOD) which includes
+\begin{enumerate*}[label=(\roman*)]
+  \item \textit{Requirements for Applications}, 
+  \item \textit{Data Provision}, 
+  \item \textit{Development of an Application} and an
+  \item \textit{Application use case}
+\end{enumerate*}
+which is illustrated in Figure~\ref{fig:lod-architecture}. 
 \begin{figure}[H]
 	\centering \includegraphics*[width=.8\columnwidth]{lod_architecture.png}
 	\caption{High level architecture of a system using Linked Open Data}
