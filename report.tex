@@ -46,14 +46,14 @@
 \pagenumbering{arabic}
 
 \section{Introduction}
-While the pressure on governments and public organizations to release \textit{Open~Data} has significantly grown with the spread of information systems, there has been also a need for \textit{linking} these data from various sources to understand the information as a whole.
+While the pressure on governments and public organizations to release \textit{Open~Data~(OD)} has significantly grown with the spread of information systems, there has been also a need for \textit{linking} these data from various sources to understand the information as a whole.
 
 Open Data includes non-privacy-restricted and non-confidential data. Therefore any restrictions in distribution are prohibited and data is funded only by public money.~\citet{article:janssen2012benefits} The application domain for Open Data providers is not restricted by its nature in any way and ranges from traffic, weather, statictics to budgeting in the public sector. Just the publication of Open Data seems not enough but in addition the implementation of a feedback loop result in \textit{Open Government}. This has the advantage of a constant adaption to the citizen's needs instead of just visualizing former closed data. 
 
 Despite its wide adoption of Open Data it does restrict the published Data format in any way, thus complicating the integration of heterogeneous data sets. The World Wide Web has proven great success spreading knowledge of various data sources all over the world. The building block of the Web are documents and links connecting them to form a global information space. This can be seen as the key success factor in its nearly unconstrained growth~\cite{report:jacobs-i-2004--a}. 
-Following these principles of publishing and connecting data on the Web is known as \textit{Linked~Data}. More technically, it refers to machine-readable data which is linked to external data sets and can in turn be linked from other data sets. 
+Following these principles of publishing and connecting data on the Web is known as \textit{Linked~Data~(LD)}. More technically, it refers to machine-readable data which is linked to external data sets and can in turn be linked from other data sets. 
 
-\citet{artivle:bernerslee-t-2006-1} developed a five star rating scheme for classifying \textit{Linked Open Data}, which combines Linked Data and Open Data. The scheme ranges from one star describing Open Data only to five stars describing Open Data in a machine-readable format using open standards with links to other data sets.
+\citet{artivle:bernerslee-t-2006-1} developed a five star rating scheme for classifying \textit{Linked Open Data~(LOD)}, which combines Linked Data and Open Data. The scheme ranges from one star describing Open Data only to five stars describing Open Data in a machine-readable format using open standards with links to other data sets.
 
 Although Linked~Open~Data offer universities new opportunities for providing unprecedented insight into its core activities and ease application development, a major \textbf{problem} is that \textbf{Linked~Open~Data has not been widely adopted by universities yet}. Even tough there are a few examples~\cite{url:linked-universities-members} of publishing university related data as Linked~Open~Data, there has been little knowledge of using Linked~Open~Data for publishing university related information. 
 
@@ -186,7 +186,15 @@ In this section we described our methodology of identifying benefits and challen
 In the remainder of this section we gave use cases for Linked Data applications and identified benefits and challenges in design and implementation. In addition to prepared use cases we listed additional use cases suggested by interviewees. Among the individual benefits for each use case we found challenges common to all proposed applications. Privacy and legal issues are major challenges not only to Linked Data but information systems in general. This is particularly true for Open Data. Thus, thoroughly clarifying data ownership and possible legal obstacles are key factors in publishing Open Data. 
 
 \section{Proposed technical Architecture}
-\ldots
+After presenting the results of the conducted interviews in the previous section we give a short overview of a prototypical architecture for the provision, processing, transformation and exposition of Linked Open Data. First, a high level view of the overall architecture is given. Then stakeholder specific concerns are discussed, highlighting relevant data sets and application types. In the remainder of this section, challenges for the design of a Linked Open Data solution are identified. 
+\subsection{The big picture}
+\begin{figure}[H]
+	\centering \includegraphics*[width=.8\columnwidth]{lod_architecture.png}
+	\caption{High level architecture of a system using Linked Open Data}
+	\label{fig:lod-architecture}
+\end{figure}
+\subsection{Stakeholder specific concerns}
+\subsection{Implementation challenges}
 
 \section{Conclusion and Future Work}
 
