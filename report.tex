@@ -189,12 +189,12 @@ In the remainder of this section we gave use cases for Linked Data applications 
 \section{Proposed technical Architecture}
 After presenting the results of the conducted interviews in the previous section we give a short overview of a prototypical architecture for the provision, processing, transformation and exposition of Linked Open Data. First, a high level view of the overall architecture is given. Then stakeholder specific concerns are discussed, highlighting relevant data sets and application types. In the remainder of this section, challenges for the design of a Linked Open Data solution are identified. 
 \subsection{The big picture}
-In this sub-section we provide an overview of a general-purpose architecture for implementing applications using Linked Open Data~(LOD) which includes
+In this sub-section we provide an overview of a high level architecture for a university wide publication framework which includes
 \begin{enumerate*}[label=(\roman*)]
   \item \textit{Requirements for Applications}, 
   \item \textit{Data Provision}, 
   \item \textit{Development of an Application} and an
-  \item \textit{Application use case}
+  \item \textit{Application Use Case}
 \end{enumerate*}
 which is illustrated in Figure~\ref{fig:lod-architecture}. 
 \begin{figure}[H]
@@ -202,6 +202,32 @@ which is illustrated in Figure~\ref{fig:lod-architecture}.
 	\caption{High level architecture of a system using Linked Open Data}
 	\label{fig:lod-architecture}
 \end{figure}
+This mental model consists of several inbound interfaces indicated as arrows pointing from outside the system boundary and outbound interfaces indicated as arrows pointing from inside the system boundary.
+
+The inbound interfaces are listed below.
+\begin{itemize}
+	\item \textit{User Requirements}~\\
+	Understanding user requirements is an essential part of the software development process. However, specifying requirements is not an easy task due to constant changing needs of stakeholders. Not only adapting to stakeholders can become challenging, novel technologies and tools are critical factors to the success of a software product. Due to the open nature of Linked Open Data privacy concerns and legal issues should be already considered in the requirements as misunderstandings are hard to fix in later phases. 
+	\item \textit{Existing Resources}~\\
+	In the early days of information system there were certainly any concerns about interoperability as huge mainframes work in isolation. With the rise of the World Wide Web distributed, heterogeneous systems emerged, raising integration costs with legacy systems. At the Vienna University of Technology there are a few existing data sets (e.g. contact information of the university staff) which need to be integrated. 
+	\item \textit{Stakeholders}~\\
+	
+	\item \textit{Application Developers}~\\
+	\ldots
+	\item \textit{LOD Experts}~\\
+	\ldots
+\end{itemize}
+
+The outbound interfaces are as follows.
+\begin{itemize}
+	\item \textit{Linked Open Data}~\\
+	\ldots
+	\item \textit{Application(s)}~\\
+	\ldots
+	\item \textit{End-User Result}~\\
+	\ldots
+\end{itemize}
+
 \subsection{Stakeholder specific concerns}
 \subsection{Implementation challenges}
 
