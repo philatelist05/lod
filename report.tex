@@ -187,7 +187,13 @@ In this section we described our methodology of identifying benefits and challen
 In the remainder of this section we gave use cases for Linked Data applications and identified benefits and challenges in design and implementation. In addition to prepared use cases we listed additional use cases suggested by interviewees. Among the individual benefits for each use case we found challenges common to all proposed applications. Privacy and legal issues are major challenges not only to Linked Data but information systems in general. This is particularly true for Open Data. Thus, thoroughly clarifying data ownership and possible legal obstacles are key factors in publishing Open Data. 
 
 \section{Proposed technical Architecture}
-After presenting the results of the conducted interviews in the previous section we give a short overview of a prototypical architecture for the provision, processing, transformation and exposition of Linked Open Data. First, a high level view of the overall architecture is given. Then stakeholder specific concerns are discussed, highlighting relevant data sets and application types. In the remainder of this section, challenges for the design of a Linked Open Data solution are identified. 
+As an organization covering areas like research, student affairs and administration a university has to manage a significant amount of knowledge, adding new information on a daily basis.
+Such an application domain is complex and includes areas like management of an academic library and provision of educational resources which have to be conform with stakeholders requirements. Traditionally the \textit{Service Oriented Architectures~(SOA)} have been used to meet these needs. However, as the application domain grows many small and similar services tend to emerge. That phenomena can not only be observed at the Vienna University of Technology, but also at the Open University\footnote{\url{http://www.open.ac.uk/}}~\cite{inproceedings:zablith_consuming_2011}.
+
+A major problem of evolving similar, independent services are diverging data formats and service owners. Thus, knowledge and administrative information that has been collected by multiple services can not be easily interlinked. An example for such isolated services is the e-learning platform called TUWEL\footnote{\url{https://tuwel.tuwien.ac.at/}}, combining moodle\footnote{\url{https://moodle.org/}} and the central information system called TISS\footnote{\url{https://tiss.tuwien.ac.at/}}. These services provide course information and material, but are intended for different purposes. Whereas TISS focuses mainly on administrative functionality, TUWEL supports the interaction between teacher and student. 
+Adding additional services which, for example, synchronize deadlines and registration dates is costly due to the fact that the information is separated over different isolated sources and not easily accessible. 
+
+In this section we give a short overview of a prototypical architecture for the provision, processing, transformation and exposition of Linked Open Data. First, a high level view of the overall architecture is given. Then stakeholder specific concerns are discussed, highlighting relevant data sets and application types. In the remainder of this section, challenges for the design of a Linked Open Data solution are identified. 
 \subsection{The big picture}
 In this sub-section we provide an overview of a high level architecture for a university wide publication framework which includes
 \begin{enumerate*}[label=(\roman*)]
@@ -228,6 +234,7 @@ Outbound interfaces are as follows:
 	After a successful launch users interact with the application in many ways. They click on buttons, navigate though menus and fill in forms. All these actions are done by the user interface which is mostly a visual representation of the application state. 
 \end{itemize}
 
+\%\%General Description of the Architecture\%\%
 \subsection{Stakeholder specific concerns}
 \subsection{Implementation challenges}
 
