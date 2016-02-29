@@ -13,7 +13,6 @@
 \usepackage{amsmath}
 \usepackage{csquotes}
 \usepackage[final]{pdfpages}
-\usepackage[inline]{enumitem}
 
 \setlength{\textfloatsep}{5pt plus 1.0pt minus 2.0pt}
 \setlength{\floatsep}{7pt plus 1.0pt minus 2.0pt}
@@ -195,20 +194,24 @@ Adding additional services which, for example, synchronize deadlines and registr
 
 In this section we give a short overview of a prototypical architecture for the provision, processing, transformation and exposition of Linked Open Data. First, a high level view of the overall architecture is given. Then stakeholder specific concerns are discussed, highlighting relevant data sets and application types. In the remainder of this section, challenges for the design of a Linked Open Data solution are identified. 
 \subsection{The big picture}
-In this sub-section we provide an overview of a high level architecture for a university wide publication framework which includes
-\begin{enumerate*}[label=(\roman*)]
-  \item \textit{Requirements for Applications}, 
-  \item \textit{Data Provision}, 
-  \item \textit{Development of an Application} and an
-  \item \textit{Application Use Case}
-\end{enumerate*}
-which is illustrated in Figure~\ref{fig:lod-architecture}. 
+In this sub-section we provide an overview of a high level architecture, illustrated in figure~\ref{fig:lod-architecture}, for a university wide publication framework which includes:
+\begin{itemize}
+  \item \textit{Requirements for Applications}~\\
+  These requirements emerge from existing resources~(e.g. course material, contact data) and stakeholders input. After gathering requirements there has to be investigated whether a solution based on Linked Data is necessary. Depending on that decision requirements for the development of an application diverge. 
+  \item \textit{Data Provision}~\\
+  Unfortunately information is often not available in a machine-processable format hampering the action of LOD~Provision. Conceptionally the generation of Linked Data is either done manually or (semi-)~automatic. While the latter is preferable for large data sets manual transformation is required if information is present in digital formats.   
+  \item \textit{Development of an Application}~\\
+  The realization of requirements resulting from stakeholders input and existing resources is done by the construction of applications capable of Linked Open Data. Since the domain of Linked data and Semantic Web in general is relatively new to most developers experts are needed to support the development process. 
+  \item \textit{Application Use Case}~\\
+  Applications and processed data run in a particular environment or domain, defining the so-called application use case. 
+\end{itemize}
+
 \begin{figure}[H]
 	\centering \includegraphics*[width=.8\columnwidth]{lod_architecture.png}
 	\caption{High level architecture of a system using Linked Open Data}
 	\label{fig:lod-architecture}
 \end{figure}
-This mental model consists of several inbound interfaces indicated as arrows pointing from outside the system boundary and outbound interfaces indicated as arrows pointing from inside the system boundary.
+The publishing framework in figure~\ref{fig:lod-architecture} consists of several inbound interfaces indicated as arrows pointing from outside the system boundary and outbound interfaces indicated as arrows pointing from inside the system boundary.
 
 Inbound interfaces are listed below:
 \begin{itemize}
@@ -234,7 +237,6 @@ Outbound interfaces are as follows:
 	After a successful launch users interact with the application in many ways. They click on buttons, navigate though menus and fill in forms. All these actions are done by the user interface which is mostly a visual representation of the application state. 
 \end{itemize}
 
-\%\%General Description of the Architecture\%\%
 \subsection{Stakeholder specific concerns}
 \subsection{Implementation challenges}
 
