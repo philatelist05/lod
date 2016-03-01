@@ -245,9 +245,19 @@ Dealing with stakeholder related concerns involves determination of domain speci
 An ontology is an explicit specification of a conceptualization.
 \end{quotation}
 \textit{Conceptualizations} are objects, entities or concepts that may or may not exist in the universe. In addition to that, the \textit{vocabulary} defines the relationships between those objects. In other words, the vocabulary defines the conceptual model of what can be represented. 
-\citet{jour:owl} describe ontologies from a more practical point of view defining the three conceptual components of an ontology - \textit{classes}, \textit{instances} and \textit{properties}. Regardless of what concrete implementation of an ontology is used graphical representations~(e.g. graph) are preferred to give a high level overview of the concepts used in an ontology. 
+\citet{jour:owl} describe ontologies from a more practical point of view defining the three conceptual components of an ontology - \textit{classes}, \textit{instances} and \textit{properties}. Regardless of what concrete implementation of an ontology is used graphical representations~(e.g. graph) are preferred over textual ones to give a high level overview of the concepts used in an ontology. 
 
+\subsubsection{Example university ontology}
+Figure~\ref{fig:owl-univ1} shows an excerpt on an ontology modelling the university as an organization.
+\begin{figure}[H]
+	\centering \includegraphics*[width=.8\columnwidth]{owl-univ1.png}
+	\caption{A graph showing an ontology representing the university as an organization}
+	\label{fig:owl-univ1}
+\end{figure}
+Unfortunately the graph in figure~\ref{fig:owl-univ1} shows just a subset of the overall ontology as the \textit{Protege}\footnote{\url{http://protege.stanford.edu/}} plugin \textit{OWLViz}\footnote{\url{http://protegewiki.stanford.edu/wiki/OWLViz}} only supports classes and sub-class relationships, neglecting object and datatype properties. The entire ontology is explorable under \url{http://swat.cse.lehigh.edu/onto/univ-bench.owl}. 
 
+The ontology was originally published by \citet{article:university-ontology} proposing a benchmark for measuring a variety of properties, and several performance
+metrics. However, this ontology covers the whole university domain extending the areas of application~(e.g. for statistical purposes). 
 \subsection{Implementation challenges}
 
 \section{Conclusion and Future Work}
