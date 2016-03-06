@@ -194,100 +194,100 @@ In this section we described the conducted interviews as the primary methodology
 In the remainder of this section we introduced use cases for Linked Data applications and identified benefits and challenges in their design and implementation. In addition to the shown use cases we listed suggested additional use cases. Among the individual benefits for each use case we found challenges common to all proposed applications. Privacy and legal issues are major challenges not only to Linked Data but information systems in general. This is particularly true for Open Data. Thus, thoroughly clarifying data ownership and possible legal obstacles are key to a successful LOD solution.  
 
 \section{Proposed technical Architecture}
-As an organization covering areas like research, student affairs and administration a university has to manage a significant amount of knowledge, adding new information on a daily basis.
-Such an application domain is complex and includes areas like management of an academic library and provision of educational resources which have to be conform with stakeholders requirements. Traditionally the \textit{Service Oriented Architectures~(SOA)} have been used to meet these needs. However, as the application domain grows many small and similar services tend to emerge. That phenomena can not only be observed at the Vienna University of Technology, but also at the Open University\footnote{\url{http://www.open.ac.uk/}}~\cite{inproceedings:zablith_consuming_2011}.
+A university has to manage a significant amount of knowledge, adding new information on a daily basis.
+Such an environment of data provision is complex and includes areas like academic data and educational resources which have to be conform to stakeholders requirements. Traditionally \textit{Service Oriented Architectures~(SOA)} have been used to meet these needs. However, as the application domain grows many small and similar services tend to emerge. That phenomena can not only be observed at the Vienna University of Technology, but also at the Open University\footnote{\url{http://www.open.ac.uk/}}~\cite{inproceedings:zablith_consuming_2011}.
 
-A major problem of evolving similar, independent services are diverging data formats and service owners. Thus, knowledge and administrative information that has been collected by multiple services can not be easily interlinked. An example for such isolated services is the e-learning platform called TUWEL\footnote{\url{https://tuwel.tuwien.ac.at/}}, combining moodle\footnote{\url{https://moodle.org/}} and the central information system called TISS\footnote{\url{https://tiss.tuwien.ac.at/}}. These services provide course information and material, but are intended for different purposes. Whereas TISS focuses mainly on administrative functionality, TUWEL supports the interaction between teacher and student. 
-Adding additional services which, for example, synchronize deadlines and registration dates is costly due to the fact that the information is separated over different isolated sources and not easily accessible. 
+A major problem of evolving similar, independent services are diverging data formats and different service owners. Thus, knowledge and administrative information that has been collected by multiple services can not be easily interlinked. An example for such isolated services is the e-learning platform called TUWEL\footnote{\url{https://tuwel.tuwien.ac.at/}}, a combination of moodle\footnote{\url{https://moodle.org/}} and the central information system called TISS\footnote{\url{https://tiss.tuwien.ac.at/}}. These services offer course information and material, but are intended for different purposes. Whereas TISS focuses mainly on administrative functionality TUWEL supports the interaction between teachers and students. 
+Adding additional services which, for example, synchronize deadlines and registration dates is costly due to the fact that the information is spread over different isolated sources and not easily accessible. 
 
-In this section we give a short overview of a prototypical architecture for the provision, processing, transformation and exposition of Linked Open Data. First, a high level view of the overall architecture is given. Then stakeholder specific concerns are discussed, highlighting relevant data sets and application types. In the remainder of this section, challenges for the design of a Linked Open Data solution are identified. 
+In this section we give a short overview of a prototypical publication framework for exposing university related assets as Linked Open Data. First, a high level view of the overall architecture is given. Then, two ontologies are introduced covering human interactions and the university domain as a whole. 
 \subsection{The big picture}
-In this sub-section we provide an overview of a high level architecture, illustrated in figure~\ref{fig:lod-architecture}, for a university wide publication framework which includes:
+In this sub-section we provide an overview of a high level architecture of a publication framework for exposing university related assets as Linked Open Data, as indicated in figure~\ref{fig:lod-architecture}, including:
 \begin{itemize}
   \item \textit{Requirements for Applications}~\\
-  These requirements emerge from existing resources~(e.g. course material, contact data) and stakeholders input. After gathering requirements there has to be investigated whether a solution based on Linked Data is necessary. Depending on that decision requirements for the development of an application diverge. 
+  These requirements emerge from existing resources~(e.g. course material, contact data) and stakeholders input. After gathering requirements there has to be investigated whether a solution based on Linked Data is necessary.
   \item \textit{Data Provision}~\\
-  Unfortunately information is often not available in a machine-processable format hampering the action of LOD~Provision. Conceptionally the generation of Linked Data is either done manually or (semi-)~automatic. While the latter is preferable for large data sets manual transformation is required if information is present in digital formats.   
+  Unfortunately information is often not available in a machine-readable format complicating LOD provision. Conceptionally the generation of Linked Data is either done manually or (semi-)~automatic. While the latter is preferable for large data sets manual transformation is the only option if information is present in non digital formats~(e.g. printed copies of building plans).  
   \item \textit{Development of an Application}~\\
-  The realization of requirements resulting from stakeholders input and existing resources is done by the construction of applications capable of Linked Open Data. Since the domain of Linked data and Semantic Web in general is relatively new to most developers experts are needed to support the development process. 
+  The generation of requirements originating from stakeholders input and existing resources is done by the development of applications driven by LOD. Since the domain of Linked Data in particular and Semantic Web in general is relatively new to most developers experts are needed to support the development process. 
   \item \textit{Application Use Case}~\\
-  Applications and processed data run in a particular environment or domain, defining the so-called application use case. 
+  Applications run in a particular environment or domain forming the so-called application use case. 
 \end{itemize}
 
 \begin{figure}[H]
 	\centering \includegraphics*[width=.8\columnwidth]{lod_architecture.png}
-	\caption{High level architecture of a system using Linked Open Data}
+	\caption{A high level architecture of publication framework driven by Linked Open Data}
 	\label{fig:lod-architecture}
 \end{figure}
-The publishing framework in figure~\ref{fig:lod-architecture} consists of several inbound interfaces indicated as arrows pointing from outside the system boundary and outbound interfaces indicated as arrows pointing from inside the system boundary.
+The publication framework in figure~\ref{fig:lod-architecture} consists of several inbound interfaces shown as arrows pointing from outside of the system and outbound interfaces shown as arrows pointing from inside the of system.
 
 Inbound interfaces are listed below:
 \begin{itemize}
 	\item \textit{User Requirements}~\\
-	Understanding user requirements is an essential part of the software development process. However, specifying requirements is not an easy task due to constant changing needs of stakeholders. Not only adapting to stakeholders can become challenging, novel technologies and tools are critical factors to the success of a software product. Due to the open nature of Linked Open Data privacy concerns and legal issues should be already considered in the requirements as misunderstandings are hard to fix in later phases. 
+	Understanding the user requirements is an essential part of software development. However, specifying requirements is not an easy task due to evolving requirements. Not only adapting to stakeholders can become challenging novel technologies and tools are critical factors to the success of a software product. Privacy concerns and legal issues should already be considered in the requirements as misunderstandings are hard to fix in later phases. 
 	\item \textit{Existing Resources}~\\
-	In the early days of information system there were certainly any concerns about interoperability as huge mainframes work in isolation. With the rise of the World Wide Web distributed, heterogeneous systems emerged, raising integration costs with legacy systems. At the Vienna University of Technology there are a few existing data sets (e.g. contact information of the university staff) which need to be integrated. 
+	In the early days of information systems there were certainly any interoperability concerns as huge mainframes work in isolation. With the rise of the World Wide Web distributed, heterogeneous systems emerged, raising integration costs with legacy systems. At the Vienna University of Technology there are a few existing data sets (e.g. contact information of the university staff) which need to be considered. 
 	\item \textit{Stakeholders}~\\
-	Stakeholders are groups, organizations or individuals who take part in the software development process. Stakeholders have an interest in the success of a software product. The most important examples are customers, (project) management and testers. 
+	Stakeholders are groups, organizations or individuals who take part in the software development process. Stakeholders have an interest in the success of a software product. Prominent examples are customers, (project) manager and testers. 
 	\item \textit{Application Developers}~\\
 	Developers create new software products or modify existing ones by implementing (end-user) requirements. 
 	\item \textit{LOD Experts}~\\
-	Creating remarkable software products in specific domains requires people with knowledge superior to those of application developers. Cooperation between LOD experts, application developers and customers is a key factor in the success of a software product. 
+	Creating remarkable software products in specific domains require people with knowledge superior to those of application developers and collaboration between LOD experts, application developers and customers.
 \end{itemize}
 
 Outbound interfaces are as follows:
 \begin{itemize}
 	\item \textit{Linked Open Data}~\\
-	The fundamental concept of our proposed model is data connected by links. However, the model does not make any assumptions about the actual data representation format. The data is generated by a data provision process. There exist (semi-) automatic and manual transformation methods depending on the machine-readability of existing data. Data enrichment and interlinking procedures are applied to data sets to generate metadata properties~\cite{inproceedings:soa-architecture}. 
+	A fundamental concept of our proposed model is data connected by links. However, the model does not make any assumptions about the actual data representation format. The data is generated by a data provision process. There exist (semi-) automatic and manual transformation methods depending on the usage of open data formats. Data enrichment and interlinking procedures are applied to data sets to generate metadata properties~\cite{inproceedings:soa-architecture}. 
 	\item \textit{Application}~\\
-	A program or application is the outcome of a comprehensive development phase. The user interface is integrated into the application making it the only component where users directly interact with. In modern information system the application not a monolithic block installed on a client computer, but rather multiple instances running on different physical machines. 
+	A program or application is the outcome of a comprehensive development process. The user interface is integrated into the application making it the only component where users directly interact with. In modern information systems the application is not a monolithic block installed on a client computer, but rather composed of multiple instances running on different physical machines. 
 	\item \textit{End-User Result}~\\
-	After a successful launch users interact with the application in many ways. They click on buttons, navigate though menus and fill in forms. All these actions are done by the user interface which is mostly a visual representation of the application state. 
+	After a successful launch users interact with the application in many ways. They click on buttons, navigate though menus and fill in forms. All these actions are supported by the user interface.
 \end{itemize}
 
 \subsection{Stakeholder specific concerns}
-Dealing with stakeholder related concerns involves determination of domain specific ontologies. In particular, ontologies covering the field of organizational data of the University of Technology in Vienna. First, this sub-section introduces two definitions of an ontology. Second, two ontologies intended but not limited for supporting the generation and evaluation of statistical data of the universities organization were proposed. 
+Dealing with stakeholder related concerns involves the definition of domain specific ontologies. In particular, ontologies covering the field of organizational data at the Vienna University of Technology. First, this sub-section introduces two ontologies intended but not limited for supporting the generation and evaluation of statistical data of the universities organization. 
 
 \citet{jour:gruber} defines an \textit{ontology} as:
 \begin{quotation}
 An ontology is an explicit specification of a conceptualization.
 \end{quotation}
 \textit{Conceptualizations} are objects, entities or concepts that may or may not exist in the universe. In addition to that, the \textit{vocabulary} defines the relationships between those objects. In other words, the vocabulary defines the conceptual model of what can be represented. 
-\citet{jour:owl} describe ontologies from a more practical point of view defining the three conceptual components of an ontology - \textit{classes}, \textit{instances} and \textit{properties}. Regardless of what concrete implementation of an ontology is used graphical representations~(e.g. graph) are preferred over textual ones to give a high level overview of the concepts used in an ontology. 
+\citet{jour:owl} describe ontologies from a more practical point of view defining the three conceptual components of an ontology - \textit{classes}, \textit{instances} and \textit{properties}. Regardless of what concrete implementation of an ontology is used graphical representations~(e.g. graph) are preferred over textual ones to give a high level overview of the ontology inherent concepts. 
 
 \subsubsection{university ontology}
-Figure~\ref{fig:owl-univ1} shows an excerpt of an ontology covering the university as an organization.
+Figure~\ref{fig:owl-univ1} shows an excerpt of an ontology covering the whole university as an organization.
 \begin{figure}[H]
 	\centering \includegraphics*[width=.8\columnwidth]{owl-univ1.png}
 	\caption{A graph showing an ontology representing the university as an organization}
 	\label{fig:owl-univ1}
 \end{figure}
-Unfortunately the graph in figure~\ref{fig:owl-univ1} shows just a subset of the overall ontology as the \textit{Protege}\footnote{\url{http://protege.stanford.edu/}} plugin \textit{OWLViz}\footnote{\url{http://protegewiki.stanford.edu/wiki/OWLViz}} only supports classes and sub-class relationships, omitting object and datatype properties. The entire ontology is explorable under \url{http://swat.cse.lehigh.edu/onto/univ-bench.owl}. 
+Unfortunately the graph in figure~\ref{fig:owl-univ1} shows just a subset of the overall ontology as the \textit{Protege}\footnote{\url{http://protege.stanford.edu/}} plugin \textit{OWLViz}\footnote{\url{http://protegewiki.stanford.edu/wiki/OWLViz}} only supports classes and sub-class relationships, omitting object and datatype properties. Its entire definition is retrievable under \url{http://swat.cse.lehigh.edu/onto/univ-bench.owl}. 
 
-The ontology was originally published by \citet{article:university-ontology} proposing a benchmark for measuring a variety of properties, and several performance
-metrics. However, this ontology covers the whole university domain extending the areas of application~(e.g. for statistical purposes). 
+The ontology was originally published by \citet{article:university-ontology} proposing a benchmark for measuring a variety of properties and several performance
+metrics. However, this ontology covers the whole university domain extending its areas of application~(e.g. for statistical purposes). 
 
 \paragraph{Relevant data (sets) at the Vienna University of Technology}
-At the time of writing this paper the Vienna University of Technology publishes statistical data about active enrollments, beginners and active students. These data is currently publicly accessable\footnote{\url{https://tiss.tuwien.ac.at/statistik/public_lehre}} through TISS. Figure\ref{fig:tiss-statistic} shows all presented data.
+At the time of writing this paper the Vienna University of Technology publishes statistical data about active enrollments, beginners and active students. These data is currently publicly accessible\footnote{\url{https://tiss.tuwien.ac.at/statistik/public_lehre}} through TISS. Figure \ref{fig:tiss-statistic} shows all accessible data.
 \begin{figure}[H]
 	\centering \includegraphics*[width=.8\columnwidth]{tiss-statistical-data.png}
-	\caption{Screenshot of the publicly accessible data set for statistical evaluation}
+	\caption{A screenshot of the publicly accessible data set for statistical evaluation}
 	\label{fig:tiss-statistic}
 \end{figure}
-Technically this data is stored in a relational database as part of the TISS ecosystem. Transformation of these data set would require adding additional metadata to be conform to the ontology presented in figure~\ref{fig:owl-univ1}. Furthermore, as that ontology is rather high level fitting for almost any educational organization, some adoptions are needed in order to keep the current amount of data. For example gender specific data or any other student related data other than \textit{graduate student} are not covered. 
+Technically this data is stored in a relational database as part of the TISS ecosystem. Transformation of these data set would require adding additional metadata to be conform to the ontology presented in figure~\ref{fig:owl-univ1}. Furthermore, as that ontology is of rather high level, fitting for almost any educational organization, some adoptions are needed in order to keep the current amount of data. For example gender specific data or any other student related data other than \textit{graduate student} are not covered. 
 
 \subsubsection{Friend-of-a-friend ontology}
 Probably the most prominent ontology in the field of describing people and their relations is the \textit{Friend-of-a-Friend~(FOAF)}\footnote{\url{http://xmlns.com/foaf/spec/}} ontology. Despite its simple use case FOAF implements three different concepts: \textit{social networks}, \textit{representational networks} and \textit{information networks}. 
-While social networks represent human collaboration and relationships, representational networks reveal communication relationships~\cite{book:encyclopedia-social-network}, e.g. people mentioned together in a communication channel enable a representation of network among them. Last, information networks connect independently published descriptions formung an inter-connected graph.
+While social networks represent human collaboration and relationships, representational networks reveal communication relationships~\cite{book:encyclopedia-social-network}, e.g. people mentioned together in a communication channel enable a representation of network among them. Last, information networks connect independently published descriptions constituting an inter-connected graph.
 
-Figure~\ref{fig:foaf-ontology} shows the generated ontology graph after the import from its specification\footnote{\url{http://xmlns.com/foaf/spec/20140114.html}}.
-The graph below was automatically generated by \textit{Protege}\footnote{\url{http://protege.stanford.edu/}} with the help of the plugin \textit{OWLViz}\footnote{\url{http://protegewiki.stanford.edu/wiki/OWLViz}}, omitting object and datatype properties.
+Figure~\ref{fig:foaf-ontology} shows the generated ontology graph after its import from \url{http://xmlns.com/foaf/spec/20140114.html}.
+The graph below was automatically generated by \textit{Protege}\footnote{\url{http://protege.stanford.edu/}} with the help of the plugin \textit{OWLViz}\footnote{\url{http://protegewiki.stanford.edu/wiki/OWLViz}} neglecting object and datatype properties.
 \begin{figure}[H]
 	\centering \includegraphics*[width=.8\columnwidth]{foaf-ontology.png}
-	\caption{The FOAF core ontology describing people and human relationships}
+	\caption{The FOAF core ontology describing people and their relationships}
 	\label{fig:foaf-ontology}
 \end{figure}
-The FOAF ontology is simple, yet expressive enabling adoption of many ontologies built on top. In fact, its the most widely used domain ontology on the semantic web~\cite{article:social-networking}. Listing~\ref{lst:rdf_xml_example} shows a simple example drawn from the FOAF-specification and encoded using the Resource Description Framework~(RDF)\cite{article:rdf}.
+The FOAF ontology is simple, yet expressive enabling the adoption of many other ontologies in similar contexts. In fact, it is the most widely used ontology on the semantic web~\cite{article:social-networking}. Listing~\ref{lst:rdf_xml_example} shows a simple example drawn from the FOAF-specification and encoded using the Resource Description Framework~(RDF)\cite{article:rdf}.
 
 \begin{lstlisting}[caption={RDF/XML representation of a person using the FOAF vocabulary},label={lst:rdf_xml_example}]
 <foaf:Person>
@@ -298,13 +298,13 @@ The FOAF ontology is simple, yet expressive enabling adoption of many ontologies
 </foaf:Person .
 \end{lstlisting}
 
-The example if listing~\ref{lst:rdf_xml_example} shows a person whose name is \texttt{Dan Brickley}. He has a homepage~(\url{http://rdfweb.org/people/danbri/}) and uploaded an image~(\url{http://rdfweb.org/people/danbri/mugshot/danbri-small.jpeg}). A randomly generated identifier has been added~(\texttt{mbox\_sha1sum}) to distinguish it from duplicate entries. 
+The example in listing~\ref{lst:rdf_xml_example} shows a person whose name is \texttt{Dan Brickley}. He has a homepage~(\url{http://rdfweb.org/people/danbri/}) and uploaded an image~(\url{http://rdfweb.org/people/danbri/mugshot/danbri-small.jpeg}). A randomly generated identifier has been added~(\texttt{mbox\_sha1sum}) to distinguish it from records with identical data. 
 
 \paragraph{Relevant data (sets) at the Vienna University of Technology}
-Due to the broad applicability and its vast incarnations a single use case can not be spotted. Rather, more complex adoption have been proposed to describe a comprehensive set of more domain specific properties. Concrete, the project \textit{Semantic Campus}~\cite{inproceedings:semantic-campus} aimed at defining an ontology for describing a universities personnel in more detail. 
+Due to the broad applicability and its vast incarnations a single use case can not be spotted. Rather, more complex adoptions have been proposed to describe a comprehensive set of more domain specific properties. Concrete, the project \textit{Semantic Campus}~\cite{inproceedings:semantic-campus} aimed at defining an ontology for describing a universities personnel in more detail. 
 \subsection{Summary}
-In this section first we briefly describe the idea of a prototypical publication framework exposing university related information as Linked Open Data. The architecture is described in a rather general manner consisting conceptionally of Requirements for Applications, Data Provision, Application Development and an Application Use Case enabling the option of defining additional views~(e.g. deployment view for practitioners). Second, two selected ontologies were presented representing candidates for modelling the university organization at high level and human relations in general. Despite their diverse applicability exclusively a major advantage Linked Data is linking various ontologies covering additional concepts. 
-Last, relevant data sets at the Vienna University of Technology have been introduced, however, due to its broad applicability the FOAF-ontology is mostly extended by more sophisticated ontologies. 
+In this section we initially describe the idea of a prototypical publication framework for exposing university related information as Linked Open Data. The architecture is described in a rather general manner consisting of \textit{Requirements for Applications}, \textit{Data Provision}, \textit{Application Development} and an \textit{Application Use Case}. Second, two selected ontologies were presented representing candidates for modeling a universities organization at high level and human relations respectively.
+Last, relevant data sets at the Vienna University of Technology have been introduced, though the FOAF-ontology is mostly extended by more sophisticated ontologies rather than used exclusively. 
 \section{Conclusion and Future Work}
 
 \newpage
