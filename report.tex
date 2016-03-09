@@ -14,6 +14,7 @@
 \usepackage{csquotes}
 \usepackage[final]{pdfpages}
 \usepackage{listings}
+\usepackage{paperandpencil} 
 
 \lstset{
   frame=single,
@@ -37,20 +38,19 @@
 \renewcommand{\bibname}{References}
 
 \pagestyle{plain}
-\pagenumbering{roman}
-\setlength{\tabcolsep}{10pt}
 
-\title{Linked~Open~Data at the Vienna University of Technology}
-
+\title{Linked~Open~Data\\ at the \\Vienna University of Technology}
+\date{}
 \author{Stefan Gamerith\\
-\texttt{e0925081@student.tuwien.ac.at} \\ Student ID.: 0925081}
+\texttt{e0925081@student.tuwien.ac.at} \\ Student ID: 0925081}
 
 \maketitle
 
 \begin{abstract}
-	%Here comes the abstract%
+	\texttt{Here comes the abstract}
 \end{abstract}
 
+\newpage
 \tableofcontents
 
 \newpage
@@ -308,13 +308,15 @@ Last, relevant data sets at the Vienna University of Technology have been introd
 \section{Conclusion and Future Work}
 
 \newpage
+\addcontentsline{toc}{section}{References}
 \bibliographystyle{plainnat}
 \bibliography{references}
 
 \newpage
 \appendix
+
 \section{Questionnaire}
-\includepdf[pages=-]{questionaire_stefan.pdf}
+\input{questionaire_stefan}
 
 
 \end{document}
