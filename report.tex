@@ -109,11 +109,22 @@ The proposed publication framework covers the whole process of data provision, r
 \%\%\%\%tbd\%\%\%\%
 
 \section{Related Work}
-\%\%\%\%tbd\%\%\%\%
+This section gives a brief overview of existing work relating to Linked Open Data~(LOD) in educational contexts. In particular we investigate experiences and established practices in that area. Fortunately there has been plenty of work done especially around \textit{Linked Universities}~(section \ref{sec:linked_universities}), an alliance of european universities. Next, two selected participants of that project are introduced who had gained great experiences at publishing educational resources. Although beneficial, but many contributions lead to divergent data sets and concepts. The project \textit{LinkedUp}~(section \ref{sec:linkedup}) tries to combine several of those facilitating a uniform view of these concepts. The remainder of this section outlines the \textit{Austrian Open Data}~(section \ref{sec:austrian_open_data}) project, a platform aimed at exposing governmental related data. 
+\subsection{Linked Universities}
+\label{sec:linked_universities}
+\subsubsection{The Open University}
+
+\subsubsection{University of Muenster}
+
+\subsection{LinkedUp project}
+\label{sec:linkedup}
+\subsection{Austrian Open Data}
+\label{sec:austrian_open_data}
 %\newpage
 \section{Benefits and Challenges}
-In this chapter we figure out the driving factors of publishing university related assets as Linked Open Data and introduce sample applications built on top of it. First, we describe the used methodology to show benefits and challenges using LOD at the Vienna University of Technology. Second, we discuss concrete topics of the interview, hence, potential needs, benefits and challenges are examined. Last, we compare benefits against shortcomings by giving concrete use-cases to show under which circumstances LOD solutions are preferable to traditional ones (e.g. a database based implementation). 
+In this chapter we figure out the driving factors of publishing university related assets as Linked Open Data and introduce sample applications built on top of it. First, we describe the used methodology~(section \ref{sec:methodology}) to show benefits and challenges using LOD at the Vienna University of Technology. Second, we discuss concrete topics of the interview, hence, potential needs, benefits and challenges are examined. We compare benefits against shortcomings by giving concrete use-cases to show under which circumstances LOD solutions are preferable to traditional ones (e.g. a database based implementation)~(section \ref{sec:results}). 
 \subsection{Methodology}
+\label{sec:methodology}
 In this sub-section we describe the Vienna University of Technology and interviewed people more thoroughly, elaborate on the interview design, analysis and threats to validity.
 \subsubsection{Interview context}
 All interviews were taken at the Vienna University of Technology~\cite{url:university-of-technology-vienna}. The university was founded in 1815 as Imperial and Royal Polytechnical Institute. 160 years later~(1975) the university was renamed to its current name \textit{University of Technology}. At the time of writing the majority of the faculties are located at the fourth district in Vienna with nearly 9,000 rooms spreading over 276,000 square meters.
@@ -139,6 +150,7 @@ Semi-structured interviews mix open and closed questions allowing qualitative an
 A common threat to the validity of collected data is a biased view on the interview answers. Two countermeasures were chosen to reduce this risk. First, the interviews were conducted by multiple researchers. Second, the interview was recorded for later analysis. 
 
 \subsection{Results}
+\label{sec:results})
 After giving a detailed description of the used methodology in the previous sub-section this sub-section contains interview outcome. First, potential use cases for building applications and publishing data as Linked Open Data are identified including benefits and barriers. Second, benefits and challenges are compared with one another resulting in guidelines for the use of LOD. 
 
 \subsubsection{Building Map}
@@ -200,7 +212,7 @@ Such an environment of data provision is complex and includes areas like academi
 A major problem of evolving similar, independent services are diverging data formats and different service owners. Thus, knowledge and administrative information that has been collected by multiple services can not be easily interlinked. An example for such isolated services is the e-learning platform called TUWEL\footnote{\url{https://tuwel.tuwien.ac.at/}}, a combination of moodle\footnote{\url{https://moodle.org/}} and the central information system called TISS\footnote{\url{https://tiss.tuwien.ac.at/}}. These services offer course information and material, but are intended for different purposes. Whereas TISS focuses mainly on administrative functionality TUWEL supports the interaction between teachers and students. 
 Adding additional services which, for example, synchronize deadlines and registration dates is costly due to the fact that the information is spread over different isolated sources and not easily accessible. 
 
-In this section we give a short overview of a prototypical publication framework for exposing university related assets as Linked Open Data. First, a high level view of the overall architecture is given. Then, two ontologies are introduced covering human interactions and the university domain as a whole. 
+In this section we give a short overview of a prototypical publication framework for exposing university related assets as Linked Open Data. First, a high level view of the overall architecture is given~(section \ref{sec:big_picture}). Then, two ontologies are introduced covering human interactions and the university domain as a whole~(section \ref{sec:ontologies}). 
 \subsection{The big picture}
 In this sub-section we provide an overview of a high level architecture of a publication framework for exposing university related assets as Linked Open Data, as indicated in figure~\ref{fig:lod-architecture}, including:
 \begin{itemize}
@@ -246,6 +258,7 @@ Outbound interfaces are as follows:
 \end{itemize}
 
 \subsection{Stakeholder specific concerns}
+\label{sec:ontologies}
 Dealing with stakeholder related concerns involves the definition of domain specific ontologies. In particular, ontologies covering the field of organizational data at the Vienna University of Technology. First, this sub-section introduces two ontologies intended but not limited for supporting the generation and evaluation of statistical data of the universities organization. 
 
 \citet{jour:gruber} defines an \textit{ontology} as:
