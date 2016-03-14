@@ -39,12 +39,13 @@
 
 \pagestyle{plain}
 
-\title{Linked~Open~Data\\ at the \\Vienna University of Technology}
+\title{\textsc{\textbf{L}inked~\textbf{O}pen~\textbf{D}ata}\\in\\Administration\\at the\\Vienna University of Technology}
 \date{}
 \author{Stefan Gamerith\\
 \texttt{e0925081@student.tuwien.ac.at} \\ Student ID: 0925081}
 
 \maketitle
+\thispagestyle{empty}
 
 \begin{abstract}
 	\texttt{Here comes the abstract}
@@ -52,6 +53,7 @@
 
 \newpage
 \tableofcontents
+\thispagestyle{empty}
 
 \newpage
 \pagenumbering{arabic}
@@ -68,6 +70,8 @@ The World Wide Web has proven great success in spreading knowledge of various da
 
 Although LOD offers universities new opportunities for providing unprecedented insight into its core activities and ease application development, a major \textbf{problem} is that \textbf{LOD has not been widely adopted by universities yet}. Even tough there are a few examples~\cite{url:linked-universities-members} of publishing university related data sets as LOD there has been little knowledge of its usage for publishing university related information. 
 
+To answer the research questions stated in the next sub-section we conducted interviews at the Vienna University of Technology. In particular \textbf{the context of this work is Administration}, though there exist papers investigating similar research questions but with different context~(\%\%\%LINK TO OTHER PAPERS (Research, Student affairs)\%\%\%). 
+
 The remainder of this section states the addressed research questions, describes the contributions of this work and gives an overview of the structure of this paper.
 
 \subsection{Research Questions}
@@ -79,7 +83,9 @@ More concrete, this paper concentrates on the following four research questions:
 \paragraph{Q1: What are best practices regarding the applicability of Linked Open Data in university settings?}
 At the time of writing this paper there are no established best practices for the use of LOD due to its little adoption in university settings. For this very reason it is crucial to identify strengths and limitations from previous experiences of using LOD as the foundation of information systems~\cite{url:linked-universities-members}. 
 \paragraph{Q2: What are major benefits and barriers for each stakeholder and what are useful use cases?}
-We identified three different stakeholders \textit{Students}, \textit{Researchers} and \textit{Administration staff}. Since the success of any new technology highly depends on their acceptance concerns of each target group needs examination. Furthermore, use cases are important to showcase profits and shortcomings. 
+We identified three different stakeholders \textit{Students}, \textit{Researchers} and \textit{Administration staff}.
+However, focus of this work are administrative workers.
+Since the success of any new technology highly depends on their acceptance concerns of each target group needs examination. Furthermore, use cases are important to showcase profits and shortcomings. 
 \paragraph{Q3: What are major challenges for the implementation of a Linked Open Data solution?}
 As the implementation of a LOD solution is a time consuming task the knowledge of probable challenges from a technical perspective as well as from a management perspective is key to a successful adoption. 
 \paragraph{Q4: How would a prototypical implementation of a publication framework based on Linked~Open~Data look like?}
@@ -88,7 +94,7 @@ Among the definition of building blocks for a publication framework of universit
 \subsection{Methodology}
 Finding an answer for the research questions above has lead to the following three methodologies:
 \paragraph{A coordinated set of semi-structured interviews}
-To answer research questions~(RQ) two to four, we interviewed a selected set of stakeholders representing \textit{Students}, \textit{Researchers} and \textit{Administration staff} respectively. Semi-structured interviews were selected as the means for data collection because they are well suited for exploring the impressions and interests of the interviewees like in a discussion while still following a defined structure. 
+To answer research questions~(RQ) two to four, we interviewed a selected set of \textit{Administration staff}. Semi-structured interviews were selected as the means for data collection because they are well suited for exploring the impressions and interests of the interviewees like in a discussion while still following a defined structure. 
 \paragraph{Literature Review}
 Undertaking a literature review to justify scientific contributions and making sound conclusions is an established practice in any scientific community. Since our scientific work targets to the Semantic Web community we made some pre-assumptions about a basic understanding of the technologies and concepts used in that respective area. More specifically, we assume a basic understanding of the concept of an ontology and some pre-knowledge about ontology description languages. 
 \paragraph{Conceptual System Design}
@@ -100,7 +106,7 @@ More precisely, our contributions can be categorized into the following four are
 \paragraph{1. Identifying best practices for Linked Open Data in university settings.}
 Information systems needs to cope with vast amount of data nowadays growing the need to efficiently handle Linked Data as well. We gave a brief overview of existing research work in that area, in particular, we compared the benefits and shortcomings in existing LOD solutions. 
 \paragraph{2. Finding benefits/barriers including additional use cases for stakeholders.}
-As with every software project the very first phase of the Software Development Lifecycle~(SDLC) is \textit{evaluating of requirements}. As LOD driven software has additional requirements to the accessibility of data and their organization we investigated if the overhead compared to an established technology~(e.g. a database based solution) is feasible. A set of selected participants from each of the areas \textit{Research}, \textit{Student~Affairs} and \textit{Administration} are interviewed at the Vienna University of Technology. Additionally we proposed several use cases emphasizing their point of view. 
+As with every software project the very first phase of the Software Development Lifecycle~(SDLC) is \textit{evaluating of requirements}. As LOD driven software has additional requirements to the accessibility of data and their organization we investigated if the overhead compared to an established technology~(e.g. a database based solution) is feasible. A set of selected \textit{administrative workers} are interviewed at the Vienna University of Technology. Additionally we proposed several use cases emphasizing their point of view. 
 \paragraph{3. Discovering possible obstacles for implementers of a Linked Open Data solution.}
 As the application domain for a Linked Data is limited to the university context our work includes LOD driven applications resulting from our conducted interviews.
 \paragraph{4. Sketching a prototypical implementation of a publication framework driven by Linked Open Data.}
@@ -145,7 +151,7 @@ with the involved concepts and recommendations for usage.
 	\item \texttt{BIBO - The Bibliographic Ontology}~\\
 	The original idea behind the adoption of the Bibliographic Ontology~(BIBO)\footnote{\url{http://bibliontology.com/}} was to express citations and bibliographic relations using a general concept like an ontology. Its usage is not limited to bibliography, but any kind of document describable by RDF. The ontology was originally created by Fredercick Giasson and Bruce D'Arcus, though its specification is in constant change and evolving. 
 	\item \texttt{LSC - Linked Science Core Vocabulary}~\\
-	The Linked Science Core Ontology~(LSC)\footnote{\url{http://linkedscience.org/lsc/ns-20111129/}} is targeted at relating objects in science to time, space and themes. In particular, its design facilitates the definition of scientific assets including elements of research, their context and inter-relations. However, LSC is a collection of basic concepts in scientific publishing, hence the word \textit{core} in its name.  
+	The Linked Science Core Ontology~(LSC)\footnote{\url{http://linkedscience.org/lsc/ns-20111129/}} is targeted at relating objects in science to time, space and themes. In particular its design facilitates the definition of scientific assets including elements of research, their context and inter-relations. However, LSC is a collection of basic concepts in scientific publishing, hence the word \textit{core} in its name.  
 	\item \texttt{TEACH - Teaching Core Vocabulary}~\\
 	The Research Core Vocabulary\footnote{\url{http://linkedscience.org/teach/ns-20130425/}} is a simple ontology describing educational courses and staff.
 	The main entry point is represented by the namespace prefix \textit{http://linkedscience.org/teach/ns}.
@@ -187,9 +193,7 @@ In this chapter we figure out the driving factors of publishing university relat
 \label{sec:methodology}
 In this sub-section we describe the Vienna University of Technology and interviewed people more thoroughly, elaborate on the interview design, analysis and threats to validity.
 \subsubsection{Interview context}
-All interviews were taken at the Vienna University of Technology~\cite{url:university-of-technology-vienna}. The university was founded in 1815 as Imperial and Royal Polytechnical Institute. 160 years later~(1975) the university was renamed to its current name \textit{University of Technology}. At the time of writing the majority of the faculties are located at the fourth district in Vienna with nearly 9,000 rooms spreading over 276,000 square meters.
-
-Employees at the Vienna University of Technology can be divided into the following three groups: \textit{administrative staff}, \textit{students} and \textit{researchers}. Since a detailed investigation of all three areas would exceed the scope of this work the \textbf{area of interest for this paper} are \textbf{administrative staff}. Though, here exists a dedicated paper targeted at each of the other two groups~(\%\%\%LINK TO THE OTHER PAPERS\%\%\%). 
+All interviews were taken at the Vienna University of Technology~\cite{url:university-of-technology-vienna}. The university was founded in 1815 as Imperial and Royal Polytechnical Institute. 160 years later~(1975) the university was renamed to its current name \textit{University of Technology}. At the time of writing the majority of the faculties are located at the fourth district in Vienna with nearly 9,000 rooms spreading over 276,000 square meters. 
 
 The Vienna University of Technology provides a website of all organizational units falling into the category Administration~\&~Services~\cite{url:university-list-of-org-units}. For the evaluation of this work several departments were contacted by email. However, the majority of them declined participating because either they did not feel comfortable answering questions because of the technical concentration of the interview (e.g. Semantic Web in general and Linked Data in particular) or they were too busy in the restricted time frame~(4~months) the interviews were planned. However, we were forwarded to representatives of the organizational units \textit{Research and Transfer Support}~\cite{url:university-research-transfer} and \textit{Department for Studies and Examinations}~\cite{url:university-studies-and-examinations}. 
 \subsubsection{Interview design}
@@ -226,7 +230,7 @@ Figure~\ref{fig:um-map-app} shows a map application built for the University of 
 Although there is no indication if the map uses Linked Data the user interface shows everything of what is achievable with LOD. 
 In figure~\ref{fig:um-map-app} a search for the rector of the Vienna University of Economy has been initiated which results in highlighting his office and selecting the appropriate floor on the left side. In addition, a guided route is initiated by clicking an adequate link on the turquoise overlay box. 
 \paragraph{Benefits}
-All interviewed stakeholders responded positive to the idea of a building application as described above. In particular, they liked the ability of highlighting specific rooms and navigating through different floors. In general, there are advantages for disabled people and external visitors as outlined in the beginning of this sub-section. 
+All interviewed stakeholders responded positive to the idea of a building application as described above. In particular they liked the ability of highlighting specific rooms and navigating through different floors. In general, there are advantages for disabled people and external visitors as outlined in the beginning of this sub-section. 
 
 \paragraph{Challenges}
 Digital data is the foundation of any information system requiring approaches for converting non-machine-readable data to machine-readable formats. Unfortunately the Department of Construction and Technology\footnote{\url{http://www.gut.tuwien.ac.at/}} at the Vienna University of Technology hosts exclusively building plans created by Computer Aided Drawing~(CAD) software prohibiting the addition of metadata for further processing. 
@@ -319,7 +323,7 @@ Outbound interfaces are as follows:
 
 \subsection{Stakeholder specific concerns}
 \label{sec:ontologies}
-Dealing with stakeholder related concerns involves the definition of domain specific ontologies. In particular, ontologies covering the field of organizational data at the Vienna University of Technology. First, this sub-section introduces two ontologies intended but not limited for supporting the generation and evaluation of statistical data of the universities organization. 
+Dealing with stakeholder related concerns involves the definition of domain specific ontologies. In particular ontologies covering the field of organizational data at the Vienna University of Technology. First, this sub-section introduces two ontologies intended but not limited for supporting the generation and evaluation of statistical data of the universities organization. 
 
 \citet{jour:gruber} defines an \textit{ontology} as:
 \begin{quotation}
