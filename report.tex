@@ -175,21 +175,15 @@ There has been put quite a lot of effort into collecting tools and software plat
 These software provide generic tools for data conversion and transformation. RDF has been chosen as the main target format enabling for further processing by general purpose XML manipulation software~(e.g. XPath evaluators and parsers).
 
 The list below shows conversation and transformation tools inspired by the LUCERO Project\footnote{\url{http://lucero-project.info/}}, headed by 
-Mathieu d'Aquin at the \textit{Open University}~\cite{inproceedings:open_university} described thoroughly in the next paragraph.
+Mathieu d'Aquin at the \textit{Open University}~\cite{inproceedings:open_university} described thoroughly in the next sub-section.
 \begin{itemize}
 	\item \texttt{Triplify}~\\
-		\ldots
+		Still, a large amount of persistent data is stored in a relational database. Together with the SQL language these technologies dominated the way how data is structured and organized. A strict database schema makes data transformation difficult, however Triplify\footnote{\url{http://triplify.org/}} tackles these problems by converting relational data into \textit{subjects}, \textit{predicates} and \textit{objects}, hence its name. 
 	\item \texttt{GRDDL}~\\
-		\ldots
-	\item \texttt{Google Refine}~\\
-		\ldots
-	\item \texttt{VIVO}~\\
-		\ldots
-	\item \texttt{GNOSS}~\\
-		\ldots
+		Traditionally Extensible Stylesheet Language Transformations~(XSLT) are used for altering or converting XML documents. As XML and RDF share a common base~(e.g. RDF documents use XML based syntax) XSLT seems to be the first choice, however as RDF descriptions become complex transformation is infeasible. The \textit{Gleaning Resource Descriptions from Dialects of Languages}~(GRDDL)\cite{jour:grddl} serves exactly that purpose by making it possible to declare that XML documents include data compatible with RDF. 
+	\item \texttt{Open Refine}~\\
+		The data formats of choice for tabular organized data are CSV and Excel files. Transformation of such formats targeted at facilitating sharing between people can become quite challenging, especially for proprietary data formats. Open Refine\footnote{\url{http://openrefine.org/}} (formerly Google Refine) is a tool which eases data conversion and exploration from many different sources including Excel, CSV and Google Spreadsheet. Although it was not originally intended to support RDF export there has been created a tool\footnote{\url{http://refine.deri.ie/}} adding RDF export as well as including some tools to connect tabular content to external linked datasets. 
 \end{itemize}
-
-%URL: http://linkeduniversities.org/lu/index.php/tools/index.html
 
 
 \paragraph{Data sets and Endpoints}
