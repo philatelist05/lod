@@ -310,9 +310,9 @@ Such an environment of data provision is complex and includes areas like academi
 A major problem of evolving similar, independent services are diverging data formats and different service owners. Thus, knowledge and administrative information that has been collected by multiple services can not be easily interlinked. An example for such isolated services is the e-learning platform called TUWEL\footnote{\url{https://tuwel.tuwien.ac.at/}}, a combination of moodle\footnote{\url{https://moodle.org/}} and the central information system called TISS\footnote{\url{https://tiss.tuwien.ac.at/}}. These services offer course information and material, but are intended for different purposes. Whereas TISS focuses mainly on administrative functionality TUWEL supports the interaction between teachers and students. 
 Adding additional services which, for example, synchronize deadlines and registration dates is costly due to the fact that the information is spread over different isolated sources and not easily accessible. 
 
-In this section we give a short overview of a prototypical publication framework for exposing university related assets as Linked Open Data. First, a high level view of the overall architecture is given~(section \ref{sec:big_picture}). Then, two ontologies are introduced covering human interactions and the university domain as a whole~(section \ref{sec:ontologies}). 
-\subsection{The big picture}
-In this sub-section we provide an overview of a high level architecture of a publication framework for exposing university related assets as Linked Open Data, as indicated in figure~\ref{fig:lod-architecture}, including:
+In this section we give a short overview of a prototypical publication framework for exposing university related assets as Linked Open Data. First, a high level view of a publication framework is given~(section \ref{sec:big_picture}). Afterwards, a prototypical architecture facilitating publishing university related assets is introduced. Finally, two ontologies are introduced covering human interactions and the university domain as a whole~(section \ref{sec:ontologies}). 
+\subsection{A publication framework}
+In this sub-section we provide an overview of a publication framework for exposing university related assets as Linked Open Data, as indicated in figure~\ref{fig:lod-architecture}, including:
 \begin{itemize}
   \item \textit{Requirements for Applications}~\\
   These requirements emerge from existing resources~(e.g. course material, contact data) and stakeholders input. After gathering requirements there has to be investigated whether a solution based on Linked Data is necessary.
@@ -326,7 +326,7 @@ In this sub-section we provide an overview of a high level architecture of a pub
 
 \begin{figure}[H]
 	\centering \includegraphics*[width=.8\columnwidth]{lod_architecture.png}
-	\caption{A high level architecture of publication framework driven by Linked Open Data}
+	\caption{A publication framework driven by Linked Open Data}
 	\label{fig:lod-architecture}
 \end{figure}
 The publication framework in figure~\ref{fig:lod-architecture} consists of several inbound interfaces shown as arrows pointing from outside of the system and outbound interfaces shown as arrows pointing from inside the of system.
@@ -354,6 +354,10 @@ Outbound interfaces are as follows:
 	\item \textit{End-User Result}~\\
 	After a successful launch users interact with the application in many ways. They click on buttons, navigate though menus and fill in forms. All these actions are supported by the user interface.
 \end{itemize}
+
+\subsection{Proposal of a prototypical architecture (Kevin)}
+\ldots
+%Will be included later
 
 \subsection{Stakeholder specific concerns}
 \label{sec:ontologies}
