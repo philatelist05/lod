@@ -7,6 +7,7 @@
 \usepackage{xspace}
 
 \usepackage{float}
+\usepackage{tabularx}
 \usepackage{hyperref}
 \usepackage[english]{babel}
 \usepackage[numbers]{natbib}
@@ -15,6 +16,7 @@
 \usepackage[final]{pdfpages}
 \usepackage{listings}
 \usepackage{paperandpencil} 
+
 
 \lstset{
   frame=single,
@@ -32,6 +34,8 @@
 
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
+
+\renewcommand{\UrlFont}{\scriptsize}
 
 
 \begin{document}
@@ -115,7 +119,7 @@ The proposed publication framework covers the whole process of data provision, r
 \%\%\%\%tbd\%\%\%\%
 
 \section{Related Work}
-This section gives a brief overview of existing work relating to Linked Open Data~(LOD) in educational contexts. In particular we investigate experiences and established practices in that area. Fortunately there has been plenty of work done especially around \textit{Linked Universities}~(section \ref{sec:linked_universities}), an alliance of european universities. Next, two selected participants of that project are introduced who had gained great experiences at publishing educational resources. Although beneficial, but many contributions lead to divergent data sets and concepts. The project \textit{LinkedUp}~(section \ref{sec:linkedup}) tries to combine several of those facilitating a uniform view of these concepts. The remainder of this section outlines the \textit{Austrian Open Data}~(section \ref{sec:austrian_open_data}) project, a platform aimed at exposing governmental related data. 
+This section gives a brief overview of existing work relating to Linked Open Data~(LOD) in educational contexts. In particular we investigate experiences and established practices in that area. Fortunately there has been plenty of work done especially around \textit{Linked Universities}~(section \ref{sec:linked_universities}), an alliance of european universities. Next, selected participants of that project are briefly discussed who had gained great experiences at publishing educational resources. Although beneficial, but many contributions lead to divergent data sets and concepts. The project \textit{LinkedUp}~(section \ref{sec:linkedup}) tries to combine several of those facilitating a uniform view of these concepts. The remainder of this section outlines the \textit{Austrian Open Data}~(section \ref{sec:austrian_open_data}) project, a platform aimed at exposing governmental related data. 
 \subsection{Linked Universities}
 \label{sec:linked_universities}
 With ongoing trend of providing unrestricted access to educational resources several universities participated in \textit{Linked Universities}\footnote{\url{http://linkeduniversities.org/}} an alliance of european universities aiming at exposing their data as Linked Data. Although some universities had already published their educational resources, data formats often diverge raising third party integration costs. For this very reason \textit{Linked Universities} facilitates data aggregation and integration among universities. Cross-university collaboration and sharing of common resources helps in establishing a common goal, the creation of a global Web of university data. 
@@ -187,12 +191,32 @@ Mathieu d'Aquin at the \textit{Open University}~\cite{inproceedings:open_univers
 
 
 \paragraph{Data sets and Endpoints}
-%URL: http://linkeduniversities.org/lu/index.php/datasets-and-endpoints/index.html
+All universities participating in Linked Universities provide endpoints for all different kinds of Linked Data.
 
+The Linked Universities project provides a list of participating universities together with endpoints offering Linked Open Data. 
+Unfortunately up to the time of writing this paper not all endpoints listed at the member page\footnote{\label{LOD_endpoints}\url{http://linkeduniversities.org/lu/index.php/datasets-and-endpoints/index.html}} are online. 
 
-\subsubsection{The Open University}
+The table below shows selected universities together with online SPARQL endpoints and data catalogs: 
 
-\subsubsection{University of Muenster}
+\begin{table}[H]
+	\begin{tabularx}{\textwidth}{l|X|X}
+		University & Data Set & SPARQL Endpoint \\
+		\hline
+		Open University & \url{http://data.open.ac.uk} & \url{http://data.open.ac.uk/query}\\
+		University of Southampton & \url{http://data.southampton.ac.uk} & \url{http://sparql.data.southampton.ac.uk}\\
+		Aalto University & \url{http://data.aalto.fi} & \url{http://data.aalto.fi/endpoint}\\
+		University of Muenster & \url{http://data.uni-muenster.de} & \url{http://data.uni-muenster.de/php/sparql}\\
+		University of Pompeu Fabra & \url{http://data.upf.edu/en/linked_data} & \url{http://data.upf.edu/en/sparql}\\
+	\end{tabularx}
+	\caption{SPARQL endpoints and data catalogs of selected members of Linked Universities}
+	\label{table:sparql_data_catalog_linked_universities}
+\end{table}
+
+While the University of Pompeu Fabra provides access to just academic publications others offer additional data sets covering academic 
+courses, publications, research projects, places,  buildings, researchers,  staff, organizational structure, news and events. The most
+complete data is provided by the Open University, a university located in the UK aimed at offering students a unique learning experience with
+the support of information systems. In addition to the data sets described above the Open University provides audio/video recording of academic courses 
+and social media related data sets as channels, playlists and posts from \url{http://audioboo.fm} and playlists and videos from \url{https://www.youtube.com}. 
 
 \subsection{LinkedUp project}
 \label{sec:linkedup}
