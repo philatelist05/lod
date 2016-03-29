@@ -52,7 +52,22 @@
 \thispagestyle{empty}
 
 \begin{abstract}
-	\texttt{Here comes the abstract}
+%	Background
+Although many universities have already published their public resources according to the Linked Data principles there 
+have not been any efforts at the Vienna University of Technology.
+
+% Methods & Results
+This paper shows international success stories and best practices 
+regarding Linked Open Data principles in an educational environment. To investigate major benefits and challenges concerning application 
+development as well as the adoption of Linked Data principles and possible use cases for end-user applications, we interviewed two 
+administrative workers at the Vienna University of Technology. Furthermore, to support practitioners and developers a prototypical 
+implementation of a publication framework for educational resources as well as a high-level architecture of an application implementing the Linked Data principles
+is given. 
+
+% Conclusion(s)
+%TODO: Summarize here the conclusion%
+
+
 \end{abstract}
 
 \newpage
@@ -88,7 +103,7 @@ More concrete, this paper concentrates on the following four research questions:
 At the time of writing this paper there are no established best practices for the use of LOD due to its little adoption in university settings. For this very reason it is crucial to identify strengths and limitations from previous experiences of using LOD as the foundation of information systems~\cite{url:linked-universities-members}. 
 \paragraph{Q2: What are major benefits and barriers for each stakeholder and what are useful use cases?}
 We identified three different stakeholders \textit{Students}, \textit{Researchers} and \textit{Administration staff}.
-However, focus of this work are administrative workers.
+However, \textbf{focus of this work are administrative workers}.
 Since the success of any new technology highly depends on their acceptance concerns of each target group needs examination. Furthermore, use cases are important to showcase profits and shortcomings. 
 \paragraph{Q3: What are major challenges for the implementation of a Linked Open Data solution?}
 As the implementation of a LOD solution is a time consuming task the knowledge of probable challenges from a technical perspective as well as from a management perspective is key to a successful adoption. 
@@ -116,9 +131,23 @@ As the application domain for a Linked Data is limited to the university context
 \paragraph{4. Sketching a prototypical implementation of a publication framework driven by Linked Open Data.}
 The proposed publication framework covers the whole process of data provision, requirement analysis and application development designed for but not limited to university related assets.  
 \subsection{Structure of this Paper}
-\%\%\%\%tbd\%\%\%\%
+This paper is structured as follows:
+
+Section \ref{sec:related_work} provides a summary
+of existing efforts regarding Linked Data principles in educational contexts. Section \ref{sec:benefits_and_challenges}
+discusses the used methodology and results 
+concerning RQ~2 and RQ~3 from selected administrative workers.
+While section \ref{sec:publication_framework} shows a prototypical implementation for a publication framework of educational assets,
+section \ref{sec:application_architecture} proposes a technical architecture for the application of Linked Open
+Data principles in educational environments.
+Finally, conclusions and future investigations are made in sections \ref{sec:conclusions} and \ref{sec:future_work}.
+
+Whereas section \ref{sec:application_architecture} is particularly intended for readers familiar with software architectures, the remaining sections do not necessarily require
+a deeper understanding. A general understanding of Semantic Web technologies for the whole paper is recommended, though.  
+
 
 \section{Related Work}
+\label{sec:related_work}
 This section gives a brief overview of existing work relating to Linked Open Data~(LOD) in educational contexts. In particular we investigate experiences and established practices in that area. Fortunately there has been plenty of work done especially around \textit{Linked Universities}~(section \ref{sec:linked_universities}), an alliance of european universities. Next, selected participants of that project are briefly discussed who had gained great experiences at publishing educational resources. Although beneficial, but many contributions lead to divergent data sets and concepts. The project \textit{LinkedUp}~(section \ref{sec:linkedup}) tries to combine several of those facilitating a uniform view of these concepts.
 
 \subsection{Linked Universities}
@@ -262,6 +291,7 @@ In the beginning of this section the project \textit{Linked Universities}, an al
 In the remainder of this section an interesting project called \textit{LinkedUp} and supported by the European Commission was briefly introduced. While being in some sense related to Linked Universities~(e.g. sharing similar goals), the LinkedUp project also covers a practitioners and implementers viewpoint. That has been specifically addressed by the LinkedUp challenge(s), three competitions intended at pushing the exploitation and adoption of Linked Open Data in educational organizations and institutions from a researchers as well as practitioners point of view. 
  
 \section{Benefits and Challenges}
+\label{sec:benefits_and_challenges}
 In this chapter we figure out the driving factors of publishing university related assets as Linked Open Data and introduce sample applications built on top of it. First, we describe the used methodology~(section \ref{sec:methodology}) to show benefits and challenges using LOD at the Vienna University of Technology. Second, we discuss concrete topics of the interview, hence, potential needs, benefits and challenges are examined. We interviewed \textbf{2 representatives} of \textbf{administration} from the Vienna University of Technology. Next, we compare benefits against shortcomings by giving concrete use-cases to show under which circumstances LOD solutions are preferable to traditional ones (e.g. a database based implementation)~(section \ref{sec:results}). 
 
 \subsection{Methodology}
@@ -374,6 +404,7 @@ Adding additional services which, for example, synchronize deadlines and registr
 
 In this section we give a short overview of a prototypical publication framework for exposing university related assets as Linked Open Data. First, a high level view of a publication framework is given~(section \ref{sec:big_picture}). Afterwards, a prototypical architecture facilitating publishing university related assets is introduced. Finally, two ontologies are introduced covering human interactions and the university domain as a whole~(section \ref{sec:ontologies}). 
 \subsection{A publication framework}
+\label{sec:publication_framework}
 In this sub-section we provide an overview of a publication framework for exposing university related assets as Linked Open Data, as indicated in figure~\ref{fig:lod-architecture}, including:
 \begin{itemize}
   \item \textit{Requirements for Applications}~\\
@@ -418,6 +449,7 @@ Outbound interfaces are as follows:
 \end{itemize}
 
 \subsection{Proposal of a prototypical architecture (Kevin)}
+\label{sec:application_architecture}
 \ldots
 %Will be included later
 
@@ -483,6 +515,11 @@ Due to the broad applicability and its vast incarnations a single use case can n
 In this section we initially describe the idea of a prototypical publication framework for exposing university related information as Linked Open Data. The architecture is described in a rather general manner consisting of \textit{Requirements for Applications}, \textit{Data Provision}, \textit{Application Development} and an \textit{Application Use Case}. Second, two selected ontologies were presented representing candidates for modeling a universities organization at high level and human relations respectively.
 Last, relevant data sets at the Vienna University of Technology have been introduced, though the FOAF-ontology is mostly extended by more sophisticated ontologies rather than used exclusively. 
 \section{Conclusion and Future Work}
+\subsection{Conclusion}
+\label{sec:conclusions}
+
+\subsection{Future Work}
+\label{sec:future_work}
 
 \newpage
 \addcontentsline{toc}{section}{References}
