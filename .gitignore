@@ -1,7 +1,6 @@
 #Latex files
 *.aux
 *.bbl
-*.pdf
 *.dvi
 *.toc
 *.out
