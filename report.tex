@@ -70,7 +70,7 @@ implementation of a publication framework for educational resources as well as a
 is given. 
 
 % Conclusion(s)
-Using Linked Open Data support is a promising way of enhancing and harmonizing processes at universities, thus creating application scenarios with a large and supportive target audience is recommended. To limit integration costs, using existing, therefore maintained and open data sets is preferred over creating new ones. 
+Using Linked Open Data is a promising way of enhancing and harmonizing processes at universities, thus creating application scenarios with a large and supportive target audience is recommended. To limit integration costs, using existing, therefore maintained and open data sets is preferred over creating new ones. 
 
 
 \end{abstract}
@@ -148,16 +148,16 @@ Data principles in educational environments.
 Finally, conclusions and future investigations are made in sections \ref{sec:conclusions} and \ref{sec:future_work}.
 
 Whereas section \ref{sec:application_architecture} is particularly intended for readers familiar with software architectures, the remaining sections do not necessarily require
-a deeper understanding. A general understanding of Semantic Web technologies for the whole paper is recommended, though.  
+a deeper understanding. However, a general understanding of Semantic Web technologies for the whole paper is recommended.  
 
 
 \section{Related Work}
 \label{sec:related_work}
-This section gives a brief overview of existing work relating to Linked Open Data~(LOD) in educational contexts. In particular we investigate experiences and established practices in that area. Fortunately there has been plenty of work done especially around \textit{Linked Universities}~(section \ref{sec:linked_universities}), an alliance of european universities. Next, selected participants of that project are briefly discussed who had gained great experiences at publishing educational resources. Although beneficial, but many contributions lead to divergent data sets and concepts. The project \textit{LinkedUp}~(section \ref{sec:linkedup}) tries to combine several of those facilitating a uniform view of these concepts.
+This section gives a brief overview of existing work relating to Linked Open Data~(LOD) in educational contexts. In particular, we investigate experiences and established practices in that area. Fortunately there has been plenty of work done especially around \textit{Linked Universities}~(section \ref{sec:linked_universities}), an alliance of european universities. Next, selected participants of that project are briefly discussed who had gained great experiences at publishing educational resources. Although beneficial, but many contributions lead to divergent data sets and concepts. The project \textit{LinkedUp}~(section \ref{sec:linkedup}) tries to combine several of those, facilitating a uniform view of these concepts.
 
 \subsection{Linked Universities}
 \label{sec:linked_universities}
-With ongoing trend of providing unrestricted access to educational resources several universities participated in \textit{Linked Universities}\footnote{\url{http://linkeduniversities.org/}} an alliance of european universities aiming at exposing their data as Linked Data. Although some universities had already published their educational resources, data formats often diverge raising third party integration costs. For this very reason \textit{Linked Universities} facilitates data aggregation and integration among universities. Cross-university collaboration and sharing of common resources helps in establishing a common goal, the creation of a global Web of university data. 
+With the ongoing trend of providing unrestricted access to educational resources several universities participated in \textit{Linked Universities}\footnote{\url{http://linkeduniversities.org/}}, an alliance of european universities aiming at exposing their data as Linked Data. Although some universities had already published their educational resources, data formats often diverge, raising third party integration costs. For this very reason \textit{Linked Universities} facilitates data aggregation and integration among universities. Cross-university collaboration and sharing of common resources helps in establishing a common goal, which is the creation of a global Web of university data. 
 
 More specifically, the goals and visions are:
 \begin{itemize}
@@ -194,14 +194,14 @@ with the involved concepts and recommendations for usage.
 	\item \texttt{TEACH - Teaching Core Vocabulary}~\\
 	The Research Core Vocabulary\footnote{\url{http://linkedscience.org/teach/ns-20130425/}} is a simple ontology describing educational courses and staff.
 	The main entry point is represented by the namespace prefix \textit{http://linkedscience.org/teach/ns}.
-	Despite its simplicity covering basic concepts of courses or seminars, mixing with other ontologies 
-	extends their applicability. Some these related ontologies are \texttt{MLO} - an ontology for learning opportunities, 
+	Mixing with other ontologies 
+	extends its applicability, though basic concepts of courses or seminars are covered. Some these related ontologies are \texttt{MLO} - an ontology for learning opportunities, 
 	\texttt{FOAF} - a friend-of-a-friend ontology, the \texttt{Time Ontology}\footnote{\url{https://www.w3.org/TR/2006/WD-owl-time-20060927/}} and
 	\texttt{AIISO} - an Academic Institution Internal Structure Ontology. 
 \end{itemize}
 
 Listing~\ref{lst:teach_example} shows a real world example\footnote{\url{http://data.aalto.fi/page/id/courses/noppa/course_Puu-0.3310}} of the ontologies listed above. 
-It shows the last a course taught at the Aalto University\footnote{\url{http://www.aalto.fi/}} organized in autumn 2014. 
+It shows a course taught at the Aalto University\footnote{\url{http://www.aalto.fi/}} organized in autumn 2014. 
 \begin{lstlisting}[caption={RDF/XML representation of an educational course for industrial symbiosis and industrial ecology concepts taught at the Aalto University using ontologies proposed at Linked Universities},label={lst:teach_example}]
   <aiiso:Course rdf:about="http://data.aalto.fi/id/courses/noppa/course_Puu-0.3310">
     <teach:arrangedAt rdf:resource="http://data.aalto.fi/id/courses/noppa/lecture_48700"/>
@@ -230,17 +230,17 @@ It shows the last a course taught at the Aalto University\footnote{\url{http://w
 
 \paragraph{Data conversion and transformation tools}
 There has been put quite a lot of effort into collecting tools and software platforms commonly used to expose Linked Data at Linked~Universities. 
-These software provide generic tools for data conversion and transformation. RDF has been chosen as the main target format enabling for further processing by general purpose XML manipulation software~(e.g. XPath evaluators and parsers).
+These software provide generic tools for data conversion and transformation. RDF has been chosen as the main target format, allowing further processing by general purpose XML manipulation software~(e.g. XPath evaluators and parsers).
 
 The list below shows conversation and transformation tools inspired by the LUCERO Project\footnote{\url{http://lucero-project.info/}}, headed by 
-Mathieu d'Aquin at the \textit{Open University}~\cite{inproceedings:open_university} described thoroughly in the next sub-section.
+Mathieu d'Aquin at the \textit{Open University}~\cite{inproceedings:open_university}.
 \begin{itemize}
 	\item \texttt{Triplify}~\\
 		Still, a large amount of persistent data is stored in a relational database. Together with the SQL language these technologies dominated the way how data is structured and organized. A strict database schema makes data transformation difficult, however Triplify\footnote{\url{http://triplify.org/}} tackles these problems by converting relational data into \textit{subjects}, \textit{predicates} and \textit{objects}, hence its name. 
 	\item \texttt{GRDDL}~\\
-		Traditionally Extensible Stylesheet Language Transformations~(XSLT) are used for altering or converting XML documents. As XML and RDF share a common base~(e.g. RDF documents use XML based syntax) XSLT seems to be the first choice, however as RDF descriptions become complex transformation is infeasible. The \textit{Gleaning Resource Descriptions from Dialects of Languages}~(GRDDL)\cite{jour:grddl} serves exactly that purpose by making it possible to declare that XML documents include data compatible with RDF. 
+		Traditionally Extensible Stylesheet Language Transformations~(XSLT) are used for altering or converting XML documents. As XML and RDF share a common base~(e.g. RDF documents use XML based syntax) XSLT seems to be the first choice, however as RDF descriptions become complex transformation, is often infeasible. The \textit{Gleaning Resource Descriptions from Dialects of Languages}~(GRDDL)\cite{jour:grddl} serves exactly that purpose by making it possible to declare that XML documents include data compatible with RDF. 
 	\item \texttt{Open Refine}~\\
-		The data formats of choice for tabular organized data are CSV and Excel files. Transformation of such formats targeted at facilitating sharing between people can become quite challenging, especially for proprietary data formats. Open Refine\footnote{\url{http://openrefine.org/}} (formerly Google Refine) is a tool which eases data conversion and exploration from many different sources including Excel, CSV and Google Spreadsheet. Although it was not originally intended to support RDF export there has been created a tool\footnote{\url{http://refine.deri.ie/}} adding RDF export as well as including some tools to connect tabular content to external linked datasets. 
+		The data formats of choice for tabular organized data are CSV and Excel files. Transformation of such formats targeted at facilitating sharing between people can become quite challenging, especially for proprietary data formats. Open Refine\footnote{\url{http://openrefine.org/}} (formerly Google Refine) is a tool which eases data conversion and exploration from many different sources including Excel, CSV and Google Spreadsheet. Although it was not originally intended to support RDF export there has been created a tool\footnote{\url{http://refine.deri.ie/}} which adds RDF export as well as including some tools to connect tabular content to external linked datasets. 
 \end{itemize}
 
 
@@ -266,11 +266,11 @@ The table below shows selected universities together with online SPARQL endpoint
 	\label{table:sparql_data_catalog_linked_universities}
 \end{table}
 
-While the University of Pompeu Fabra provides access to just academic publications others offer additional data sets covering academic 
+While the University of Pompeu Fabra provides access to just academic publications, others offer additional data sets covering academic 
 courses, publications, research projects, places,  buildings, researchers,  staff, organizational structure, news and events. The most
 complete data is provided by the Open University, a university located in the UK aimed at offering students a unique learning experience with
 the support of information systems. In addition to the data sets described above the Open University provides audio/video recording of academic courses 
-and social media related data sets as channels, playlists and posts from \url{http://audioboo.fm} and playlists and videos from \url{https://www.youtube.com}. 
+and social media related data sets as channels, playlists and posts from \url{http://audioboo.fm} and playlists as well as videos from \url{https://www.youtube.com}. 
 
 \subsection{LinkedUp project - Linking Web Data for Education}
 \label{sec:linkedup}
@@ -289,12 +289,12 @@ More specifically, the projects main objectives are:
 	The promotion of Linked Open Data technologies is an explicit goal of the LinkedUp project. 
 \end{itemize}
 
-The outcome of the LinkedUp project to investigate the goals listed above are several so-called \textit{"deliverables"}\footnote{\url{http://linkedup-project.eu/resources/deliverables/}}. 
+The outcome of the LinkedUp project were several so-called \textit{"deliverables"}\footnote{\url{http://linkedup-project.eu/resources/deliverables/}}. 
 
 Below, there is a list of the most relevant deliverables:
 \paragraph{State of the art and data assessment}~\\
 In this report~\cite{url:linkedup_state_of_the_art_and_data_assessment} a comprehensive study on the developments in the field of Linked Data and
-related fields of educational data mining and learning analytics is given. The report resulted from a collaboration between the Leibniz University of Hannover, the Open Knowledge Foundation, the Open Universiteit Nederland, the Open University, Elsevier and Exact Learning Solutions. The authors first briefly describe fundamental technologies and concepts, namely Linked Data, educational data mining and learning analytics used throughout the paper. Several candidates representing each of the two basic data mining principles~(\textit{data harvesting} and \textit{distributed search}) for heterogeneous data sets are presented. The field of learning analytics focuses on techniques targeted at analyzing and understanding educational learning processes and environments. A complete discussion on this topic though, was out of scope since this is a relatively new research area. Next, challenges and barriers concerning the heterogeneity of open educational resources are investigated. Techniques trying to solve isolated data sets include \textit{schema mapping} and \textit{classification and clustering}. Finally, data sets from the LinkedUp repository\footnote{\url{http://data.linkededucation.org/linkedup/catalog/browse/}} and possible legal obstacles and solutions to these are assessed. 
+related fields of educational data mining and learning analytics is given. The report resulted from a collaboration between the Leibniz University of Hannover, the Open Knowledge Foundation, the Open Universiteit Nederland, the Open University, Elsevier and Exact Learning Solutions. The authors first briefly describe fundamental technologies and concepts, namely Linked Data, educational data mining and learning analytics used throughout the paper. Several candidates representing each of the two basic data mining principles~(\textit{data harvesting} and \textit{distributed search}) for heterogeneous data sets are presented. The field of learning analytics focuses on techniques targeted at analyzing and understanding educational learning processes and environments. A complete discussion on this topic though, was out of scope since this is a relatively new research area. Next, challenges and barriers concerning the heterogeneity of open educational resources are investigated. Techniques trying to solve isolated data sets including \textit{schema mapping} and \textit{classification and clustering} are proposed. Finally, data sets from the LinkedUp repository\footnote{\url{http://data.linkededucation.org/linkedup/catalog/browse/}} and possible legal obstacles and solutions to these are discussed. 
 
 \paragraph{The LinkedUp Challenge(s)}
 The LinkedUp Challenge\footnote{\url{http://linkedup-challenge.org/}} was organized as three separate challenges \textit{Veni}, \textit{Vidi} and \textit{Vici} ending on October 2013, April 2014 and November 2014 respectively. While the goal of the first competition~(Veni) was developing a \textit{"prototype or demo that uses linked and/or open data for educational purposes"}, the Vidi challenge was targeted at finding \textit{"innovative and robust prototypes and demos for tools, which still may contain bugs, as long as it has a stable set of features and there is some proof that us can be deployed on a realistic scale"}. The rationale of the latter, yet more advanced challenge was to build \textit{"advanced prototypes and tools that should be mature and stable; it should be used or have been used by a fair amount of users on a realistic scale"}~\cite{url:linkedup_lnikedup_challenge_results}. 
@@ -305,14 +305,14 @@ The winner for Veni was \texttt{Polimedia}\footnote{\url{http://www.polimedia.nl
 the winner of the Vici competition, was designed to automate the production and delivery of interactive digital language collections and targeted to non-expert users~(e.g. language teachers, language learners, subject specialists, instructional design and e-learning support teams). 
 
 \paragraph{Evaluation Framework}
-\citet{url:linkedup_evaluation_framework} proposed an evaluation framework throughout the three web open educational data competitions Veni, Vidi and Vici, described in detail in the last paragraph. The aim of the evaluation framework was to evaluate the usefulness, usability, acceptance and appropriateness of the contributions to the LinkedUp challenges. Therefore experts had to define and/or refine assessment criteria and indicators for measuring the quality of the framework. Practically the frameworks usefulness and ease of use was tested through a questionnaire and interviews. A detailed questionnaire for each of the three challenges as well as the final version of the evaluation framework are accessible at \cite{url:linkedup_evaluation_framework}. 
+\citet{url:linkedup_evaluation_framework} proposed an evaluation framework throughout the three open educational data competitions Veni, Vidi and Vici, described in detail in the paragraph above. The aim of the evaluation framework was to evaluate the usefulness, usability, acceptance and appropriateness of the contributions to the LinkedUp challenges. Therefore experts had to define and/or refine assessment criteria and indicators for measuring the quality of the framework. Practically the frameworks usefulness and ease of use was tested through a questionnaire and interviews. A detailed questionnaire for each of the three challenges as well as the final version of the evaluation framework are accessible at \cite{url:linkedup_evaluation_framework}. 
 
 \subsection{Summary}
-In this section a brief outline of the relevant research fields for this paper has been presented.
+In this section a brief outline of the relevant research fields for this paper was presented.
 
 In the beginning of this section the project \textit{Linked Universities}, an alliance of several universities, was introduced. The purpose of that collaboration was spreading the knowledge and adoption of Linked Data principles across universities borders. We quickly discussed shared vocabularies and data sets, introduced useful data conversion and transformation tools and finally listed selected SPARQL endpoints and data catalogs.
 
-In the remainder of this section an interesting project called \textit{LinkedUp} and supported by the European Commission was briefly introduced. While being in some sense related to Linked Universities~(e.g. sharing similar goals), the LinkedUp project also covers a practitioners and implementers viewpoint. That has been specifically addressed by the LinkedUp challenge(s), three competitions intended at pushing the exploitation and adoption of Linked Open Data in educational organizations and institutions from a researchers as well as practitioners point of view. 
+In the remainder of this section an interesting project called \textit{LinkedUp} and supported by the European Commission was briefly introduced. While being in some sense related to Linked Universities~(e.g. sharing similar goals), the LinkedUp project also covers practitioners and implementers viewpoints. That was specifically addressed by the LinkedUp challenge(s), three competitions intended at pushing the exploitation and adoption of Linked Open Data in educational organizations and institutions from a researchers as well as practitioners point of view. 
  
 \section{Benefits and Challenges}
 \label{sec:benefits_and_challenges}
@@ -427,7 +427,7 @@ Such an environment of data provision is complex and includes areas like academi
 A major problem of evolving similar, independent services are diverging data formats and different service owners. Thus, knowledge and administrative information that has been collected by multiple services can not be easily interlinked. An example for such isolated services is the e-learning platform called TUWEL\footnote{\url{https://tuwel.tuwien.ac.at/}}, a combination of moodle\footnote{\url{https://moodle.org/}} and the central information system called TISS\footnote{\url{https://tiss.tuwien.ac.at/}}. These services offer course information and material, but are intended for different purposes. Whereas TISS focuses mainly on administrative functionality TUWEL supports the interaction between teachers and students. 
 Adding additional services which, for example, synchronize deadlines and registration dates is costly due to the fact that the information is spread over different isolated sources and not easily accessible. 
 
-In this section we give a short overview of a prototypical publication framework for exposing university related assets as Linked Open Data. First, a high level view of a publication framework is given~(section \ref{sec:big_picture}). Afterwards, a prototypical architecture facilitating publishing university related assets is introduced. Finally, two ontologies are introduced covering human interactions and the university domain as a whole~(section \ref{sec:ontologies}). 
+In this section we give a short overview of a prototypical publication framework for exposing university related assets as Linked Open Data. At first, a high level view of a publication framework is given~(section \ref{sec:publication_framework}). Afterwards, a prototypical architecture facilitating publishing university related assets is introduced. Finally, two ontologies are introduced covering human interactions and the university domain as a whole~(section \ref{sec:ontologies}). 
 \subsection{A publication framework}
 \label{sec:publication_framework}
 In this sub-section we provide an overview of a publication framework for exposing university related assets as Linked Open Data, as indicated in figure~\ref{fig:lod-architecture}, including:
@@ -589,20 +589,20 @@ The example in listing~\ref{lst:rdf_xml_example} shows a person whose name is \t
 \paragraph{Relevant data (sets) at the Vienna University of Technology}
 Due to the broad applicability and its vast incarnations a single use case can not be spotted. Rather, more complex adoptions have been proposed to describe a comprehensive set of more domain specific properties. Concrete, the project \textit{Semantic Campus}~\cite{inproceedings:semantic-campus} aimed at defining an ontology for describing a universities personnel in more detail. 
 \subsection{Summary}
-In this section we initially describe the idea of a prototypical publication framework for exposing university related information as Linked Open Data. The architecture is described in a rather general manner consisting of \textit{Requirements for Applications}, \textit{Data Provision}, \textit{Application Development} and an \textit{Application Use Case}. Second, two selected ontologies were presented representing candidates for modeling a universities organization at high level and human relations respectively.
-Last, relevant data sets at the Vienna University of Technology have been introduced, though the FOAF-ontology is mostly extended by more sophisticated ontologies rather than used exclusively. 
+In this section we initially described the idea of a prototypical publication framework for exposing university related information as Linked Open Data. The framework was described in a rather general manner, consisting of \textit{Requirements for Applications}, \textit{Data Provision}, \textit{Application Development} and an \textit{Application Use Case}. Second, an architecture for a general purpose application driven by Linked Data principles was introduced. Third, two selected ontologies representing candidates for modeling a universities organization at high level and human relations respectively were presented.
+Last, relevant data sets at the Vienna University of Technology were introduced, though the FOAF-ontology is mostly extended by more sophisticated ontologies rather than used exclusively. 
 \section{Conclusions and Future Work}
-The high-level goal of this work in to enhance and improve processes at the Vienna University of Technology. We have broken down this goal
+The high-level goal of this work is to enhance and improve processes at the Vienna University of Technology. We have broken down this goal
 into four distinct research questions:
 \begin{itemize}
 	\item \textit{RQ1: What are best practices regarding the applicability of Linked Open Data in university settings?}
 	\item \textit{RQ2: What are major benefits and barriers for each stakeholder and what are useful use cases?}
 	\item \textit{RQ3: What are major challenges for the implementation of a Linked Open Data solution?}
-	\item \textit{RQ4: How would a prototypical implementation of a publication framework based on Linked~Open~Data look like?}
+	\item \textit{RQ4: How would a prototypical implementation of a publication framework based on Linked Open Data look like?}
 \end{itemize}
 In the first part of this paper~(section \ref{sec:related_work}) we investigated the first research question and provided international best practices and success stories 
 in educational environments. In the second part~(section \ref{sec:benefits_and_challenges}) we focused on benefits and challenges regarding the applicability as well as
-the implementation of Linked Data principles for administrative workers at the Vienna University of Technology by conducting interviews, addressing the second and the third research question. In the final part~(section \ref{sec:technical_architecture}) we addressed research question four by giving a high level overview of a publication framework for educational resources at first~(section \ref{sec:publication_framework}) and then providing a general architecture for applications built following Linked Data principles~(section \ref{sec:application_architecture}). 
+the implementation of Linked Data principles for administrative workers at the Vienna University of Technology by conducting interviews, addressing the second and the third research question. In the final part~(section \ref{sec:technical_architecture}) we addressed research question four by giving a high level overview of a publication framework for educational resources at first~(section \ref{sec:publication_framework}) and then providing a general architecture for applications following Linked Data principles~(section \ref{sec:application_architecture}). 
 
 In this section we discuss conclusions and contributions related to the four research questions we investigated (section \ref{sec:conclusions}) and present ideas for future work (section \ref{sec:future_work}). 
 \subsection{Conclusions and Contributions}
@@ -622,13 +622,13 @@ Hence, a general guideline should be \textit{using already existing ontologies a
 \textit{Our contribution is to identify and describe these (international) best practices.}
 
 \subsubsection{Major benefits, challenges and use uses for stakeholders}
-In the second part~(section \ref{sec:benefits_and_challenges}) guided our attention on benefits and challenges regarding the applicability as well as
+In the second part~(section \ref{sec:benefits_and_challenges}) we guided our attention on benefits and challenges regarding the applicability as well as
 potential use cases for administrative workers at the Vienna University of Technology. 
 Our work resulted in the following conclusion:
 
 \textbf{Use application scenarios with large and supportive stakeholder groups.}
 It is much easier and profitable to build applications in a preferably large and supportive environment. Nothing hinders progress more than a skeptical target audience. 
-As we have seen from interviews the group of administrative workers and researchers small and manageable. Rather, to take advantage and spreading knowledge of Linked Open Data principles we suggest to choose students as target stakeholders. In addition, offering courses, providing students the ability to develop applications driven by LOD, helps in enhancing and maintaining LOD data sets. \\
+As we have seen from interviews the group of administrative workers and researchers are small and manageable. Rather, to take advantage and spreading knowledge of Linked Open Data principles we suggest choosing students as target stakeholders. In addition, offering courses, provide students the ability to develop applications driven by LOD and helps in enhancing and maintaining LOD data sets. \\
 
 \textit{Our contribution is to get a better understanding of the stakeholders needs at first and then identify potential use cases and aspects in realizing these.}
 
@@ -646,7 +646,7 @@ In the final part~(section \ref{sec:technical_architecture}) we addressed resear
 We come to the following conclusions:
 
 \textbf{Applications making use of LOD should be built following a general architecture.}
-There have already been efforts at building LOD applications at enterprise level, sharing a similar foundation. A general picture of a successful architecture facilitates establishing common vocabularies and understandings under developers, customers and management. \\
+There have already been efforts at building LOD applications at enterprise level, sharing a similar foundation. An agreed picture of a successful architecture facilitates establishing common vocabularies and understandings under developers, customers and management. \\
 
 \textit{Our contribution is to provide a general architecture for LOD applications, hence supporting developers in creating these kinds of applications.}
 
