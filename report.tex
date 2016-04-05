@@ -11,12 +11,15 @@
 \usepackage{tabularx}
 \usepackage{hyperref}
 \usepackage[english]{babel}
-\usepackage[numbers]{natbib}
+\usepackage[backend=bibtex, natbib=true]{biblatex}
 \usepackage{amsmath}
 \usepackage{csquotes}
 \usepackage[final]{pdfpages}
 \usepackage{listings}
 \usepackage{paperandpencil} 
+
+
+\addbibresource{references.bib}
 
 \lstset{
   frame=single,
@@ -521,7 +524,7 @@ Considering the performance of such a system and to avoid too much communication
 \texttt{Sesame}~\footnote{\url{http://rdf4j.org/}}, 
 \texttt{Jena TDB}~\footnote{\url{http://openjena.org/TDB/}}, 
 \texttt{4Store}~\footnote{\url{http://4store.org/}} or 
-\texttt{SwiftOWLIM}~\footnote{\url{http://www.ontotext.com/owlim/}}. The LUCERO project settled for the \texttt{SwiftOWLIM}, because it is ``\textit{free, scalable and efficient, and includes limited reasoning capabilities, which might end up being useful in the future}''~\citet{url:lucero-tabloid}.
+\texttt{SwiftOWLIM}~\footnote{\url{http://www.ontotext.com/owlim/}}. The LUCERO project settled for the \texttt{SwiftOWLIM}, because it is ``\textit{free, scalable and efficient, and includes limited reasoning capabilities, which might end up being useful in the future}''~\cite{url:lucero-tabloid}.
 
 \subsubsection{Expose the data to the Web}
 \label{subsubsec:provision}
@@ -664,14 +667,14 @@ The following list summarizes planned future work:
 
 %-----------------BIBLIOGRAPHY-----------------
 \addcontentsline{toc}{section}{References}
-\bibliographystyle{plainnat}
-\bibliography{references}
+%\bibliographystyle{plainnat}
+%\bibliography{references}
 
-%\printbibliography[title={References to refereed scientific work}, keyword=refsw]
-%
-%\printbibliography[title={References to non-refereed work}, keyword=nonrefw]
-%
-%\printbibliography[title={References to websites}, type=misc]
+\printbibliography[title={References to refereed scientific work}, keyword=refsw]
+
+\printbibliography[title={References to non-refereed work}, keyword=nonrefw]
+
+\printbibliography[title={References to websites}, type=misc]
 %----------------------------------------------
 
 \newpage
