@@ -274,7 +274,7 @@ and social media related data sets as channels, playlists and posts from \url{ht
 
 \subsection{LinkedUp project - Linking Web Data for Education}
 \label{sec:linkedup}
-The LinkedUp project\footnote{\url{http://linkedup-project.eu/}} is a project funded by the European Commission aimed at pushing forward the exploitation and adoption of Linked Open Data in educational organizations and institutions. This project started on the 1st November 2012 and lasted about 2 years. 
+The LinkedUp project\footnote{\url{http://linkedup-project.eu/}} is a project funded by the European Commission aimed at pushing forward the exploitation and adoption of Linked Open Data in educational organizations and institutions. This project started on the 1$^{st}$ November 2012 and lasted about 2 years. 
 
 More specifically, the projects main objectives are:
 \begin{itemize}
@@ -475,60 +475,143 @@ Outbound interfaces are as follows:
 
 \subsection{Proposal of a prototypical architecture}
 \label{sec:application_architecture}
-In order to overcome the environment of data silos and to support the evolvement of a university-wide data space for public resources, a technical architecture following the Linked Data principles is proposed and discussed in this section. 
+%======================================BEGIN Technical Architeture==============================================
+In order to overcome the environment of data silos and to support the evolvement of a university-wide data space for public resources, a technical architecture following Linked Data principles is proposed and discussed in this section. Berners-Lee suggested four principles for publishing data on the web, which can be considered as best practice. The compliance with this best practice leads to Linked Data: ``\textit{the idea is that the more people follow these principles, the more their data will be usable by others.}''\cite{simperl_using_2013}.
 
-In order to transform datasets into Linked Data and publish it in an open way, a system architecture is required that faces the issues of diverging data sources and data freshness.\textit{``An important architectural pattern used in system development is the multi-tier architecture. It logically separates the functionality of the system in a number of layers and specifies the communication between those layers.''}\cite{simperl_using_2013}.
+The four principles stated by Berners-Lee (2006)\cite{artivle:bernerslee-t-2006-1} are:
+\begin{enumerate}
+	\item Use URIs as names for things
+	\item Use HTTP URIs so that people can look up those names.
+	\item When someone looks up a URI, provide useful information, using the standards (RDF, RDFS, SPARQL)
+	\item Include links to other URIs. so that they can discover more things.
+\end{enumerate}
+Every thing mentioned in one or more datasets of the university shall be identified uniquely by an URI. The Audimax (main lecture hall) of the Vienna University of Technology with the room code \texttt{BAU176A} may, for example, be identified by \url{http://lod.tuwien.ac.at/room/BAU176A} and a visit of this HTTP location reveals all the knowledge about this room like capacity, event schedule, \ldots in a machine-readable format. This can include links to the hosted events using the same approach with HTTP URIs. In this case, the four principles would be fulfilled and a computer program can easily explore this machine-readable information following those links like humans would naturally would do. As mentioned above, following the principles leads to Linked Data. Linked Open Data extends Linked Data with the idea of publishing it in an open way.
+``\textit{Open means anyone can freely access, use, modify, and share for any purpose (subject, at most, to requirements that preserve provenance and openness).}''\cite{_open_????}
 
-The proposed architecture is mainly inspired by the toolkit \texttt{Tabloid}~(Toolkit ABout Linked Open Institutional Data) by the LUCERO Project~\cite{url:lucero-tabloid}, a collection of tools, examples and documentations. The general principle is a system, which extract RDF data from existing data sources (section~\ref{subsubsec:sources}), load them into a triple store (section~\ref{subsubsec:store}) and finally expose them to the web (section~\ref{subsubsec:provision}). 
+In order to transform demanded datasets of the university into Linked Data and publish it in an open way, a system architecture is required that faces the issues of diverging data sources and data freshness.``\textit{An important architectural pattern used in system development is the multi-tier architecture. It logically separates the functionality of the system in a number of layers and specifies the communication between those layers.}''\cite{simperl_using_2013}. The proposed architecture (see figure \ref{fig:tac-high-level-architecture}) is composed of four tiers. The first tier represents diverging forms of \textbf{\textit{data sources}} that can occur in an information environment at a university (see \ref{technical-architecture-challenges:proposal:data-source}). The second tier shows the \textbf{\textit{integration}} of such data sources into a central data storage for Linked Data, also called triple store (see \ref{technical-architecture-challenges:proposal:integration}). The third tier shows the \textbf{\textit{provision}} of the stored Linked Data (see \ref{technical-architecture-challenges:proposal:provision}) so that developers can implement \textbf{\textit{applications}} based on it, represented in the fourth tier.  
 
-For illustration see the LUCERO workflow in figure~\ref{Fi:lucero_architecture}: 
-\begin{figure}[H]
-\centering \includegraphics*[width=.8\columnwidth]{lucero-workflow.png}
-\caption[Example: the LUCERO workflow]{Example: the LUCERO workflow~\cite{url:lucero-tabloid}}
-\label{Fi:lucero_architecture}
+\begin{figure}[t]
+\centering \includegraphics*[width=0.9\columnwidth]{lod_technical_architecture.png}
+\caption{High level architecture for providing Linked Open Data (adapted from EUCLID {\cite{simperl_using_2013}})}
+\label{fig:tac-high-level-architecture}
 \end{figure}
 
-A more generic architecture can be seen in figure~\ref{Fi:tec_architecture}:
+\subsubsection{Data sources}
+\label{technical-architecture-challenges:proposal:data-source}
+As the information environment of a university may consist of multiple independent services that evolved over time powered by data sources that do not met the principles of Linked Data like relational databases. In order to encourage data owners to publish their data as Linked Open Data, Berners-Lee developed the following star rating system: \cite{artivle:bernerslee-t-2006-1}\\
+\begin{center}
+\begin{tabular}{p{2cm}  p{10cm}}
+		$\bigstar$ & Available on the web (whatever format) but with an open license~(essentially Open Data) \\
+		\hline
+		$\bigstar\bigstar$ & Available as machine-readable structured data (e.g. Excel instead of image scan of a table)\\
+		\hline
+		$\bigstar\bigstar\bigstar$ & as ($\bigstar\bigstar$) plus non-proprietary format (e.g. CSV instead of Excel)\\
+		\hline
+		$\bigstar\bigstar\bigstar\bigstar$ & All the above plus, Use open standards from W3C (RDF and SPARQL) to identify things, so that people can link to\\
+		\hline
+		$\bigstar\bigstar\bigstar\bigstar\bigstar$ & All the above, plus: Link your data to other people's data to provide context\\
+\end{tabular}
+\end{center}
+There are techniques to integrate these diverging data sources into a five-star Linked Data environment without reconstructing legacy services and work-flows, which is described in the \textbf{\textit{integration}} tier. In this section though, different forms of data sources that may occur in the information environment of a university are listed. 
 
-\begin{figure}[H]
-\centering \includegraphics*[width=.8\columnwidth]{lod_technical_architecture.png}
-\caption[Generic high level technical architecture of a LOD system]{Generic high level technical architecture for providing Linked Open Data (adapted from EUCLID {\cite{simperl_using_2013}})}
-\label{Fi:tec_architecture}
+\paragraph{Not machine-readable:} Not machine-processable sources of knowledge like the expertise of a human (e.g. which rooms are in which way accessible) or not machine-readable data (e.g. images, PDF files) which have to be transformed by humans into data formats that can be processed and interpreted by computers in order to be manageable by the proposed technical architecture. Non machine-readable data like images or PDF files have a rating of one-star ($\bigstar$), if they are exposed on a public accessible web page. These data is essentially considered \textit{Open Data}.
+
+\paragraph{(Semi-)structured data:} A quick look at a data repository like \url{http://www.datahub.io} shows that major parts of datasets are released as CSV files or proprietary Excel files. The same phenomena can be observed at the Austrian open data portals \url{http://www.opendataportal.at} and \url{http://www.data.gv.at}. On one side, in this way, it is usual to exchange data at offices and on the other side an easy and inexpensive way to publish data. Universities are no exceptions, the Vienna University of Economics for example releases course information as CSV files on their open data portal. Data published in form of CSV files have a rating of three-stars ($\bigstar\bigstar\bigstar$), whereas released Excel files have only a rating of two-stars ($\bigstar\bigstar$) because of lacking openness of the format. RSS feeds, if used by the university, can also be a source for valuable structured information.
+
+\paragraph{Relational databases:} ``\textit{Data is often stored in a relational database, perhaps powering an important legacy application. In such cases it is generally advisable to retain the existing data management infrastructure and software, so as not to disrupt legacy applications}''.\cite{heath_linked_2011} Instead the \textit{\textbf{integration tier}} shows how to integrate data originating from relational databases into systems capable of Linked Data. Data sets of relational databases could be presented to the end-user through public web pages in a human readable or in a structured format. The data may also be accessible by a Web API.
+
+\paragraph{Web APIs:} Web APIs are one way to give access to particular data of a application in a structured format so that application developers on their hand can use them for their application. It is common to provide results in formats such as XML and JSON. At the Vienna University of Technology, the central information system TISS has a RESTful API, which gives access to some data like course information or the address book. Web APIs achieve a rating of $\bigstar\bigstar\bigstar$, if the API uses open and structured formats. However, this Web APIs have some limitations in the perspective of Linked Data. ``\textit{Data returned from Web APIs typically exists as isolated fragments, lacking reliable onward links signposting the way to related data. Therefore, while Web APIs make data accessible on the Web, they do not place it truly in the Web, making it linkable and therefore discoverable.}''\cite{heath_linked_2011} In either way, Web APIs are a good starting point and the \textit{\textbf{integration tier}} shows how to integrate data of Web APIs into a Linked Data system using wrappers.
+
+\paragraph{Moodle:} ``\textit{Moodle is an open-source e-learning application, written in PHP and widely used by teachers all over the world.}''\cite{lukichev_empowering_????} Such an application is the source of a lot of unstructured data concerning course information and learning materials. \citet{lukichev_empowering_????} described preliminary ideas for empowering the e-learning platform Moodle with rules and semantics, providing tutors a useful application for flexible course management and reporting. At the moment of writing, Moodle does not have a plugin providing this capability. However, \citet{holtham_moodle_2012} outline the development of a next-generation learning environment based on semantic web-based technologies and pedagogies of the mid-21$^{st}$ century in a position paper for 2020.
+
+\paragraph{MediaWiki:} ``\textit{Wikis have become popular tools for collaboration on the web and many vibrant online communities employ wikis to exchange knowledge}'' \cite{krotzsch_semantic_2006} At the Vienna University of Technology Mediawiki was employed for sharing experiences and other knowledge about courses as well as about the university itself. Mediawiki is a widely-used open-source wiki written in PHP, originally for use on Wikipedia. The knowledge is usually exchanged in form of plain text and uploaded files like images, PDF files or similar multimedia content, so that it is not machine-readable. Semantic MediaWiki\footnote{\url{https://semantic-mediawiki.org/}} ``\textit{is a semantically enhanced wiki engine that enables users to annotate the wiki’s contents with explicit, machine-readable information.}''\cite{krotzsch_semantic_2006} This extension can also be installed for already running MediaWikis. It supports semantically enriched wiki pages and provides a Web API for gathering the machine-readable information. 
+
+\paragraph{Content Management Systems:} Content Management Systems~(CMS) are popular tools for publishing knowledge on the web, ``\textit{common used for blogging to express personal or professional views on the world or on observed items that may be of interest to others.}''\cite{bojars_using_2006} CMS' are not only used for blogging, but also for more general purposes. The Vienna University of Technology has set up a Typo3\footnote{\url{https://typo3.org/}} CMS to serve valuable information about the university and about some of its organizational units (e.g. interest group for accessibility). As with MediaWikis, the content published by these CMS' is valuable, but often not machine-readable. Particular CMS' provide modules that simplify the annotation of CMS' content with explicit, machine-readable information. Drupal\footnote{\url{https://drupal.org/}} does for example automatically provide meta-data (title, author, topic, etc.) about the published content. In this case, the proposed \textbf{\textit{integration tier}} could integrate those meta-data into the system.
+
+\paragraph{Semantically enriched web pages:} Solutions like annotating content published by Content Management Systems and MediaWikis lead to semantically enriched web pages. RDFa is often used alongside microdata and microformats. RDFa is a extension to HTML5 that makes it possible to annotate human-readable information contained in HTML5 pages to provide semantics for machines. ``\textit{RDFa is popular in contexts where data publishers are able to modify HTML templates but have relatively little additional control over the publishing infrastructure.}'' \cite{heath_linked_2011} A snippet of a HTML page using RDFa is shown in Listing~\ref{lst:rdfa}, where the fact that Heinz Zemanek is an alumni of the Vienna University of Technology is stated.
+
+\begin{lstlisting}[caption={A snippet of a HTML page using RDFa},label={lst:rdfa}]
+<div vocab="http://schema.org/" typeof="CollegeOrUniversity">
+  <span property="name">Vienna University of Technology</span>
+  <link property="sameAs"
+        href="http://en.wikipedia.org/wiki/Vienna_University_of_Technology"/>
+  <div property="alumni" typeof="OrganizationRole">
+    <div property="alumni" typeof="Person">
+      <span property="name">Heinz Zemanek</span>
+      <link property="sameAs" href="http://en.wikipedia.org/wiki/Heinz_Zemanek"/>
+    </div>
+  </div>
+</div>
+\end{lstlisting}
+Microdata and microformats work in a similar way. Not only CMS' employed by the university, also course teams who are employing their own information systems could make use of this technique. A convenient way for data owners to serve data in a human- and machine-readable format. The \textbf{\textit{integration tier}} shows how this data can be extracted and integrated into the system.
+
+\paragraph{Linked Open Data:} The Linked Open Data cloud (see figure \ref{fig:lod-cloud-diagram}) visualizes datasets of various domains that have been published in Linked Data formats\cite{_linking_????}. Berners-Lee emphasizes in his principles for publishing Linked Data that the data shall be interlinked with external Linked Data to give context. Hence,  gathering of particular linked datasets must also be considered by the technical architecture for the purpose of interlinking. The ways in which Linked Data is exposed can diverge. It can be done via SPARQL endpoints (see \ref{technical-architecture-challenges:proposal:provision}), Web APIs, or RDF dumps, possibly published on a repository like \texttt{datahub.io}. For example, the European Library\footnote{\url{http://theeuropeanlibrary.org}} manages the collections of national libraries as well as research libraries of Europe and exports them regularly into a single RDF file. The academic library of the university could interlink items of its own collection with matching items of the European Library project. As a result, the academic library enriches its own knowledge about this item with collected knowledge of the European Library project (e.g. contributors).
+
+\begin{figure}[t]
+\centering \includegraphics*[width=1.0\columnwidth]{lod-cloud_colored_1000px.png}
+\caption{LOD cloud diagram of the year 2014}
+\label{fig:lod-cloud-diagram}
 \end{figure}
 
-\subsubsection{Collect \& extract data from sources}
-\label{subsubsec:sources}
-The first step must be to collect and extract the data from sources and transform them into a proper LOD format~(e.g. RDF). By now there are basically for every data format tools for transforming them into RDF, LinkedUniversities made a collection of them~\footnote{\url{http://linkeduniversities.org/lu/index.php/tools/index.html}}.
 
-Below are the main tools listed:
-\begin{itemize}
-	\item \textbf{From Relational Databases}
-	\begin{itemize}
-		\item \texttt{Triplify}~\footnote{\url{http://triplify.org/}} is a tool which use SQL queries to generate RDF data from a relational database.
-		\item \texttt{D2RQ}~\footnote{\url{http://www4.wiwiss.fu-berlin.de/bizer/d2r-server/}} is a tool which also use SQL queries but with the use of a mapping that relates the structure of a database to RDF triples. It transformers SPARQL queries at run-time into SQL queries using this mapping.
+\subsubsection{Integration}
+\label{technical-architecture-challenges:proposal:integration}
+The \textit{\textbf{data source tier}} represents diverging data sources, which may be part of the information environment of a university. The \textit{\textbf{integration tier}} shows how to integrate the demanded and available datasets of those data sources into the system. The integration process consists of multiple steps, which are described next.
+
+\paragraph{Data acquisition} is the first step of the integration process and is required for acquiring the data that shall be integrated into the system. According to \citet{simperl_using_2013} and \citet{heath_linked_2011} there are a number of ways, in which consumed and integrated data within the system may be accessed. The approach used for this proposed architecture is the \textit{crawling pattern}, where the data is acquired in advance and afterwards integrated and cleansed. The disadvantage of this pattern is that the data will be replicated and might not be up to date. However, ``\textit{the crawling pattern is suitable for implementing applications on top of an open, growing set of sources}''\cite{heath_linked_2011}, which is beneficial for systems that shall integrate public resources of a university. An alternative approach is the \textit{On-The-Fly Dereferencing pattern}, ``\textit{where the URIs are dereferenced at the moment that the system requires the data}'', hence no local storage is needed. The advantage is up-to-date data, but the performance may be very slow compared to gathering and transforming costs of demanded data.
+
+
+\paragraph{Vocabulary mapping} is the second step of the integration process. In this step the acquired data is translated into the systems target schema (in section \ref{sec:ontologies} a collection of vocabularies that may be of interest for a universities domain is listed). The translation is definitely necessary for acquired data that has not already be transformed into Linked Data. For the proposed technical architecture, this would be the case for (semi-)structured datasets like CSV or XML. In the following, some tools are listed for transforming (semi-)structured datasets into Linked Data.
+
+\begin{description}
+ 	\item[\small From tables and spreadsheets:]~\\
+ 	\begin{itemize}
+ 		\item \textbf{Open Refine}\footnote{\url{http://openrefine.org/}} is a graphical tool for semi-automatically transforming and cleaning messy data including among others CSV, XML and JSON. A RDF Extension~\footnote{\url{http://lab.linkeddata.deri.ie/2010/grefine-rdf-extension/}} can be used to map the data to ones vocabulary and to export the result into a RDF file.
+ 		\item \texttt{Any23}~\footnote{\url{http://lab.linkeddata.deri.ie/2010/grefine-rdf-extension/}} or  \texttt{csv2rdf4lod} \footnote{\url{https://github.com/timrdf/csv2rdf4lod-automation/wiki}} are Java APIs that can be used for simple transformations from CSV into RDF.
 	\end{itemize}
-	\item \textbf{From XML and RSS}~\\
-	In terms of syntax, XML, RSS and RDF sharing the same base, so there have to be fewer efforts to be done to transform them syntacticly, commonly using XSLT. W3C recommended the \texttt{GRDDL}~\footnote{\url{http://www.w3.org/TR/grddl/}} language for this purpose.
-	\item \textbf{From Tables and Spreadsheets}
+	\item[\small From RSS and XML:]~\\
 	\begin{itemize}
-		\item \texttt{Google Refine}~\footnote{\url{http://code.google.com/p/google-refine/}} with the RDF Extension~\footnote{\url{http://lab.linkeddata.deri.ie/2010/grefine-rdf-extension/}} is an easy way to clean, transform and explore data in a tabular format including MS Excel, Google Spreadsheet and CSV.
-		\item Other tools like \texttt{Any23}~\footnote{\url{http://lab.linkeddata.deri.ie/2010/grefine-rdf-extension/} (at the moment of the work unavailable)} or \texttt{QUIDICRC}~\footnote{\url{http://any23.org/}(at the moment of the work unavailable)} providing simple transformation from CSV to RDF
+		\item A common used approach to transform XML into other representations is \texttt{XSLT}. W3C recommends the \texttt{GRDDL}~\footnote{\url{http://www.w3.org/TR/grddl/}} language for transforming XML into RDF. RSS feeds use a standard XML file format, so the same tools can be applied to it.
 	\end{itemize}
-\end{itemize}
+	\item[\small From relational databases]  that can be accessed directly by the system:~\\
+	\begin{itemize}
+		\item \texttt{R2RML} is a W3C recommendation for mapping relational databases to linked data, which can be used in two ways. First, the data can be transformed into a RDF dump by using a specified R2RML mapping. Afterwards, the RDF dump can be integrated. Secondly, SPARQL queries could be translated on-the-fly into relational queries, which is not suitable for the proposed architecture.
+	\end{itemize}
+	\item[\small From other formats:]~\\
+	\begin{itemize}
+		\item W3C made a document available named \texttt{ConverterToRdf}\footnote{\url{https://www.w3.org/wiki/ConverterToRdf}} in which tools for transforming several formats into RDF are exposed.
+	\end{itemize}
+\end{description}
 
-After extracting the data as RDF from there source, they need to be cleaned and interlinked with themselves and other data.
+Furthermore, different Linked Data sources often use different vocabularies to represent data about the same type of entity.\cite{berners-lee_fractal_2008} In this case a vocabulary mapping may also be necessary in order to give the \textit{\textbf{applications}} an integrated view of the stored Linked Data. 
 
-\subsubsection{Store the data}
-\label{subsubsec:store}
-Considering the performance of such a system and to avoid too much communication with the original data source, the center of the system is a triple store, where the extracted data are stored and from there exposed to the web. A triple store (or RDF store) is a purpose-built database, \textit{``designed to store and retrieve identities that are constructed from triplex collections of strings (sequences of letters). These triplex collections represent a subject-predicate-object relationship that more or less corresponds to the definition put forth by the RDF standard.''}~\citet{url:triplestore}. There are a lot of implementations of such a triple store, like 
+\paragraph{Interlinking} is the third step of the integration process. As mentioned earlier, one Linked Data principle is the interlinking with other Linked Data sets to give context. Interlinking entities of the local triple store with matching entities of other datasets enriches the knowledge about these entities by giving the end user the ability to explore its contents. \texttt{Silk} \footnote{\url{http://silkframework.org/}} is a Java framework that supports the interlinking of datasets, providing its own specification language (SILK-LSL). It can handle different data sources like SPARQL endpoints and RDF dumps to interlink with. With \texttt{Silk}s workbench the linking can be configured graphically.
+
+\paragraph{Cleansing} is the fourth step of the integration process. In this step the data that has been already transformed and may be interlinked with other datasets before it is stored (e.g. removal of ambiguities).
+
+\paragraph{Storing} is the final step in which the Linked Data is stored in a central triple store. There are a lot of implementations of such a triple store, like 
 \texttt{Sesame}~\footnote{\url{http://rdf4j.org/}}, 
-\texttt{Jena TDB}~\footnote{\url{http://openjena.org/TDB/}}, 
+\texttt{Jena TDB}~\footnote{\url{http://openjena.org/TDB/}},
+\texttt{Virtuoso Universal Server}~\footnote{\url{http://virtuoso.openlinksw.com/}},
 \texttt{4Store}~\footnote{\url{http://4store.org/}} or 
-\texttt{SwiftOWLIM}~\footnote{\url{http://www.ontotext.com/owlim/}}. The LUCERO project settled for the \texttt{SwiftOWLIM}, because it is ``\textit{free, scalable and efficient, and includes limited reasoning capabilities, which might end up being useful in the future}''~\cite{url:lucero-tabloid}.
+\texttt{SwiftOWLIM}~\footnote{\url{http://www.ontotext.com/owlim/}}. The LUCERO project settled for the \texttt{SwiftOWLIM}, because it is ``\textit{free, scalable and efficient, and includes limited reasoning capabilities}''~\cite{url:lucero-tabloid}.
 
-\subsubsection{Expose the data to the Web}
-\label{subsubsec:provision}
-The last step is obviously to expose the data from the triple store to the web. For this purpose a SPARQL endpoint is commonly used, but there are also other way, e.g. resolvable URIs, the linked data API~\footnote{\url{http://code.google.com/p/linked-data-api/}} or an Open RESTful API. All of them make the data available so others can query and access them to use it for their application or to serve themselves as resource for linking it with other data.
+\subsubsection{Provision}
+\label{technical-architecture-challenges:proposal:provision}
+In the \textit{\textbf{integration tier}} demanded and available datasets were integrated into a local triple store. The \textit{\textbf{provision tier}} gives now an overview of different ways to grant the end user access to the Linked Data stored in the local triple store.
+
+\paragraph{SPARQL endpoint:} SPARQL is a language that enables querying of a RDF dataset or in this case the whole triple store. A SPARQL endpoint is a web service that can process SPARQL requests and returns the corresponding results. The advantage of SPARQL endpoints is that the end user can flexibly request a particular subset of the data stored in the local triple store.
+
+\paragraph{RESTful API:} ``\textit{RESTful APIs are a programming interface implemented using HTTP and the principles of REST (Representational State Transfer) to allow actions on Web resources.}''\cite{hyland_linked_????}
+In order to not violate the principles of LOD the API must be open. \texttt{Linked Data API}\footnote{\url{http://www.epimorphics.com/web/projects/linked-data-api}} can be used to provide a RESTful interface to the end user. It makes also SPARQL requests possible so that end users do not have to give up their flexibility.
+
+\paragraph{CMS enriched with RDFa:} The previous mentioned techniques for exposing stored Linked Data are not suitable for human readers. They are targeting the application developer as end user. However, \textit{resolvable URIs} are an approach to provide knowledge about an entity contained in the triple store by visiting its unique identifier (e.g. URI). One advantage is the possibility of applying \textit{content negotiation}, a technique where the end user can specify the desired format of the response by modifying the \texttt{Accept} entry of the requests header. The default entry for web browsers is one of \texttt{application/rdf+xml} - machine-readable or \texttt{text/html} - human-readable. 
+
+In general, the human-readable response will be a web page, which leads to an additional advantage. These retrieved web pages can be annotated using RDFa to provide semantics readable by machines. The reason why it seems useful, meanwhile the machine-readable knowledge could simply be requested by \textit{content negotiation}, is the ability of nowadays search engines to extract knowledge provided by RDFa or microdata. ``\textit{The embedded data is crawled together with the HTML pages by search engines, such as Google, Yahoo, and Bing, which use the data to enrich their search results.}''\cite{bizer_deployment_2013} Schema.org\footnote{\url{http://schema.org/}} is a movement of major search engines to create, maintain and promote schemas for structured data on the Internet. The idea is to improve the search experience for users.
+
+Whereas \textit{resolvable URIs} are a good approach to serve knowledge in a human- and machine-readable format, it can not be used to query the stored Linked Data. Thus one of the previous mentioned techniques (SPARQL endpoint or RESTful API) must be employed simultaneously to provide this ability. A service that uses \textit{resolvable URIs} and \textit{content negotiation} together with a SPARQL endpoint is DBPedia, which additionally annotates the knowledge published on a web page using RDFa (e.g. \url{http://dbpedia.org/resource/Vienna_University_of_Technology}).
+
+%======================================END Technical Architecture==============================================
 
 \subsection{Stakeholder specific concerns}
 \label{sec:ontologies}
@@ -663,12 +746,16 @@ The following list summarizes planned future work:
 	\item \texttt{Consolidated report to executive board}~\\
 	There will be a followup report, summarizing our contributions for students, researchers and administrative workers. This report is addressed to the executive board of the Vienna University of Technology. A side-product of this report will be a brief presentation about the overall result and achievements, planned in the near future. 
 \end{itemize}
+
+%-----------------Acknowledgements-----------------
+\section{Acknowledgements}
+The authors would like to thank \texttt{Assoc. Prof. Dr. Stefan Biffl}\footnote{\href{mailto:stefan.biffl@tuwien.ac.at}{stefan.biffl@tuwien.ac.at}} and \texttt{Dr. Marta Sabou}\footnote{\href{marta.sabou@ifs.tuwien.ac.at}{marta.sabou@ifs.tuwien.ac.at}} who had the initial idea. They provided great feedback and supported us in writing this report and finding participants for the conducted interviews. 
+
+Special thanks goes the interviewees~(\texttt{Mag.iur. Dr.iur. Jasmin Gruendling-Riener}\footnote{\href{mailto:jasmin.gruendling-riener@tuwien.ac.at}{jasmin.gruendling-riener@tuwien.ac.at}} and \texttt{Dipl.-Ing. Wolfgang Spreicer}\footnote{\href{mailto:wolfgang.spreicer@tuwien.ac.at}{wolfgang.spreicer@tuwien.ac.at}}) for their time and thoughts.
 \newpage
 
 %-----------------BIBLIOGRAPHY-----------------
 \addcontentsline{toc}{section}{References}
-%\bibliographystyle{plainnat}
-%\bibliography{references}
 
 \printbibliography[title={References to refereed scientific work}, keyword=refsw]
 
